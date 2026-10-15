@@ -52,7 +52,7 @@ class TableData:
             if not values:
                 sentences.append(f"{label}:")
                 continue
-            pairs = [f"{h} = {v}" for h, v in zip(header, values) if v]
+            pairs = [f"{h} = {v}" for h, v in zip(header, values, strict=False) if v]
             sentences.append(f"{label}: " + "; ".join(pairs))
         return sentences
 

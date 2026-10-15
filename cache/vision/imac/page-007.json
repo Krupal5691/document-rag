@@ -1,0 +1,38 @@
+{
+ "elements": [
+  {
+   "type": "diagram",
+   "title": "Product Life Cycle",
+   "content": "A circular lifecycle diagram showing five stages: Design and Source, Make, Package and Ship, Use, and Recover.",
+   "footnotes": []
+  },
+  {
+   "type": "callout",
+   "title": "Use",
+   "content": "iMac uses 58 percent less energy than the requirement for ENERGY STAR.18",
+   "footnotes": [
+    "18"
+   ]
+  },
+  {
+   "type": "text",
+   "title": "Energy consumption of ENERGY STAR-rated products",
+   "content": "Apple devices consistently rank among the high-performing products rated by ENERGY STAR, which sets specifications that typically reflect the 25 percent most energy-efficient devices on the market. iMac consumes 58 percent less energy than the requirement for ENERGY STAR.18",
+   "footnotes": [
+    "18"
+   ]
+  },
+  {
+   "type": "text",
+   "title": "Designed to last",
+   "content": "iMac features a durable unibody construction and has undergone rigorous testing for durability.",
+   "footnotes": []
+  },
+  {
+   "type": "text",
+   "title": "Made with smarter chemistry",
+   "content": "We apply rigorous controls for materials users touch—all based on recommendations from toxicologists and dermatologists.",
+   "footnotes": []
+  }
+ ]
+}

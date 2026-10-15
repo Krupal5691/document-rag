@@ -28,6 +28,7 @@ def main() -> None:
     p = sub.add_parser("ingest")
     p.add_argument("--doc", default="all")
     p.add_argument("--variant", default="all", choices=["naive", "advanced", "all"])
+    p.add_argument("--skip-existing", action="store_true", help="only build indexes that are missing")
 
     p = sub.add_parser("ask")
     p.add_argument("--doc", required=True)
@@ -50,7 +51,7 @@ def main() -> None:
         variants = ("naive", "advanced") if a.variant == "all" else (a.variant,)
         for d in _docs(a.doc):
             print(f"== {d}")
-            stats = pipeline.ingest(d, variants)
+            stats = pipeline.ingest(d, variants, skip_existing=a.skip_existing)
             print(json.dumps(stats, indent=1))
     elif a.cmd == "ask":
         rag = pipeline.build(a.doc, a.variant)

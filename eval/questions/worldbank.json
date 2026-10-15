@@ -1,22 +1,174 @@
 [
-  {"id": "wb-1", "source": "brief", "question": "What is the growth outlook for South Asia in this report?",
-   "facts": [["6.3"]], "pages": [96, 97, 98]},
-  {"id": "wb-2", "source": "brief", "question": "What does Chapter 3 say about sovereign debt in developing economies?",
-   "facts": [["interest rate", "spread", "yield"], ["debt"]], "pages": [107, 108, 109, 110, 111, 112, 113, 114, 115]},
-  {"id": "wb-3", "source": "brief", "question": "According to the executive summary, what are the main risks to the global outlook?",
-   "facts": [["escalation", "hostilities"], ["trade policy", "geopolitical", "weather"]], "pages": [19, 20]},
-  {"id": "wb-4", "source": "extra", "question": "What is global growth projected to be in 2026?",
-   "facts": [["2.5"]], "pages": [19, 25, 26, 27]},
-  {"id": "wb-5", "source": "extra", "question": "What is India's growth forecast for fiscal year 2026/27?",
-   "facts": [["6.6"]], "pages": [96, 98]},
-  {"id": "wb-6", "source": "extra", "question": "What growth is projected for East Asia and Pacific in 2026?",
-   "facts": [["4.2"]], "pages": [81, 82, 83]},
-  {"id": "wb-7", "source": "extra", "question": "What is the 2026 growth forecast for Sub-Saharan Africa?",
-   "facts": [["4 percent", "4.0"]], "pages": [99, 100, 101, 102]},
-  {"id": "wb-8", "source": "extra", "question": "By how much are sovereign spreads associated with the rise in EMDE debt since 2010?",
-   "facts": [["110"]], "pages": [109, 110, 111]},
-  {"id": "wb-9", "source": "keywords", "question": "SAR growth 2026",
-   "facts": [["6.3"]], "pages": [96, 97, 98]},
-  {"id": "wb-10", "source": "unanswerable", "question": "What is the population of Tokyo?",
-   "answerable": false}
+ {
+  "id": "wb-1",
+  "source": "brief",
+  "question": "What is the growth outlook for South Asia in this report?",
+  "facts": [
+   [
+    "6.3"
+   ]
+  ],
+  "pages": [
+   96,
+   97,
+   98
+  ]
+ },
+ {
+  "id": "wb-2",
+  "source": "brief",
+  "question": "What does Chapter 3 say about sovereign debt in developing economies?",
+  "facts": [
+   [
+    "interest rate",
+    "spread",
+    "yield"
+   ],
+   [
+    "debt"
+   ]
+  ],
+  "pages": [
+   107,
+   108,
+   109,
+   110,
+   111,
+   112,
+   113,
+   114,
+   115
+  ]
+ },
+ {
+  "id": "wb-3",
+  "source": "brief",
+  "question": "According to the executive summary, what are the main risks to the global outlook?",
+  "facts": [
+   [
+    "escalation",
+    "hostilities"
+   ],
+   [
+    "trade policy",
+    "geopolitical",
+    "weather"
+   ]
+  ],
+  "pages": [
+   19,
+   20
+  ]
+ },
+ {
+  "id": "wb-4",
+  "source": "extra",
+  "question": "What is global growth projected to be in 2026?",
+  "facts": [
+   [
+    "2.5"
+   ]
+  ],
+  "pages": [
+   19,
+   25,
+   26,
+   27
+  ]
+ },
+ {
+  "id": "wb-5",
+  "source": "extra",
+  "question": "What is India's growth forecast for fiscal year 2026/27?",
+  "facts": [
+   [
+    "6.6"
+   ]
+  ],
+  "pages": [
+   96,
+   98
+  ]
+ },
+ {
+  "id": "wb-6",
+  "source": "extra",
+  "question": "What growth is projected for East Asia and Pacific in 2026?",
+  "facts": [
+   [
+    "4.2"
+   ]
+  ],
+  "pages": [
+   81,
+   82,
+   83
+  ]
+ },
+ {
+  "id": "wb-7",
+  "source": "extra",
+  "question": "What is the 2026 growth forecast for Sub-Saharan Africa?",
+  "facts": [
+   [
+    "4 percent",
+    "4.0"
+   ]
+  ],
+  "pages": [
+   99,
+   100,
+   101,
+   102
+  ]
+ },
+ {
+  "id": "wb-8",
+  "source": "extra",
+  "question": "By how much are sovereign spreads associated with the rise in EMDE debt since 2010?",
+  "facts": [
+   [
+    "110"
+   ]
+  ],
+  "pages": [
+   109,
+   110,
+   111
+  ]
+ },
+ {
+  "id": "wb-9",
+  "source": "keywords",
+  "question": "SAR growth 2026",
+  "facts": [
+   [
+    "6.3"
+   ]
+  ],
+  "pages": [
+   96,
+   97,
+   98
+  ]
+ },
+ {
+  "id": "wb-11",
+  "source": "table",
+  "question": "What is Bangladesh's growth forecast for fiscal year 2026/27?",
+  "facts": [
+   [
+    "4.6"
+   ]
+  ],
+  "pages": [
+   98
+  ]
+ },
+ {
+  "id": "wb-10",
+  "source": "unanswerable",
+  "question": "What is the population of Tokyo?",
+  "answerable": false
+ }
 ]

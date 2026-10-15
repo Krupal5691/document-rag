@@ -1,0 +1,1925 @@
+{
+ "doc": "gpo",
+ "date": "2026-10-15T22:46:00",
+ "embedder": "local-bge-small-en-v1.5",
+ "answers": false,
+ "variants": {
+  "naive": {
+   "rows": [
+    {
+     "id": "gpo-1",
+     "question": "How many depository libraries did GPO staff visit in FY 2018?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.22,
+     "context_pages": [
+      [
+       5
+      ],
+      [
+       19
+      ],
+      [
+       5
+      ],
+      [
+       21
+      ],
+      [
+       20
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-2",
+     "question": "What new digital system replaced FDsys, and when was it fully deployed?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       39
+      ],
+      [
+       16
+      ],
+      [
+       10
+      ],
+      [
+       46
+      ],
+      [
+       22
+      ]
+     ],
+     "hit": true,
+     "rr": 0.3333333333333333,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-3",
+     "question": "How much did GPO procure in printing and information products in FY 2018 on behalf of federal agencies?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       14
+      ],
+      [
+       5
+      ],
+      [
+       38
+      ],
+      [
+       73
+      ],
+      [
+       76
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-4",
+     "question": "How many copies of how many titles did GPO distribute to depository libraries in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       19
+      ],
+      [
+       23
+      ],
+      [
+       5
+      ],
+      [
+       15
+      ],
+      [
+       5
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-5",
+     "question": "How many libraries participate in the Federal Depository Library Program?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       5
+      ],
+      [
+       19
+      ],
+      [
+       19
+      ],
+      [
+       39
+      ],
+      [
+       19
+      ]
+     ],
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-6",
+     "question": "What were GPO's total revenues in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       26
+      ],
+      [
+       43
+      ],
+      [
+       6
+      ],
+      [
+       26
+      ],
+      [
+       27
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-7",
+     "question": "How many passports did GPO produce in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       6
+      ],
+      [
+       18
+      ],
+      [
+       26
+      ],
+      [
+       25
+      ],
+      [
+       26
+      ]
+     ],
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-8",
+     "question": "Who signed the annual report as Acting Deputy Director?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       3
+      ],
+      [
+       54
+      ],
+      [
+       52
+      ],
+      [
+       1
+      ],
+      [
+       4
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-9",
+     "question": "procurement orders vendors",
+     "source": "keywords",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       10
+      ],
+      [
+       45
+      ],
+      [
+       74
+      ],
+      [
+       38
+      ],
+      [
+       20
+      ]
+     ],
+     "hit": false,
+     "rr": 0.0,
+     "context_recall": 0.0
+    },
+    {
+     "id": "gpo-11",
+     "question": "How many titles did GPO catalog in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       23
+      ],
+      [
+       19
+      ],
+      [
+       8
+      ],
+      [
+       4
+      ],
+      [
+       5
+      ]
+     ],
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-10",
+     "question": "What was GPO's budget request for fiscal year 2025?",
+     "source": "unanswerable",
+     "answerable": false,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       6
+      ],
+      [
+       4
+      ],
+      [
+       75
+      ],
+      [
+       79
+      ],
+      [
+       26
+      ]
+     ]
+    }
+   ],
+   "summary": {
+    "questions": 11,
+    "hit@k": 0.9,
+    "mrr": 0.6833333333333333,
+    "context_recall": 0.9,
+    "avg_latency_s": 0.03
+   }
+  },
+  "advanced": {
+   "rows": [
+    {
+     "id": "gpo-1",
+     "question": "How many depository libraries did GPO staff visit in FY 2018?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.47,
+     "context_pages": [
+      [
+       21
+      ],
+      [
+       5
+      ],
+      [
+       19,
+       20
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-2",
+     "question": "What new digital system replaced FDsys, and when was it fully deployed?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.7,
+     "context_pages": [
+      [
+       9,
+       10
+      ],
+      [
+       39
+      ],
+      [
+       22
+      ],
+      [
+       4
+      ],
+      [
+       6,
+       7,
+       8
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-3",
+     "question": "How much did GPO procure in printing and information products in FY 2018 on behalf of federal agencies?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.43,
+     "context_pages": [
+      [
+       5,
+       6
+      ],
+      [
+       14
+      ],
+      [
+       17,
+       18
+      ],
+      [
+       23
+      ],
+      [
+       24
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-4",
+     "question": "How many copies of how many titles did GPO distribute to depository libraries in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.84,
+     "context_pages": [
+      [
+       5
+      ],
+      [
+       19,
+       20
+      ],
+      [
+       14,
+       15
+      ],
+      [
+       6,
+       7,
+       8
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-5",
+     "question": "How many libraries participate in the Federal Depository Library Program?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.11,
+     "context_pages": [
+      [
+       39
+      ],
+      [
+       6,
+       7,
+       8
+      ],
+      [
+       5
+      ],
+      [
+       20,
+       21
+      ],
+      [
+       19,
+       20
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-6",
+     "question": "What were GPO's total revenues in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.76,
+     "context_pages": [
+      [
+       25,
+       26
+      ],
+      [
+       26
+      ],
+      [
+       6
+      ],
+      [
+       23,
+       24
+      ],
+      [
+       14
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-7",
+     "question": "How many passports did GPO produce in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.02,
+     "context_pages": [
+      [
+       18
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       14,
+       15
+      ],
+      [
+       47
+      ],
+      [
+       41
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-8",
+     "question": "Who signed the annual report as Acting Deputy Director?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.68,
+     "context_pages": [
+      [
+       3
+      ],
+      [
+       4
+      ],
+      [
+       10
+      ],
+      [
+       8,
+       9
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-9",
+     "question": "procurement orders vendors",
+     "source": "keywords",
+     "answerable": true,
+     "latency": 1.02,
+     "context_pages": [
+      [
+       45,
+       46
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       38
+      ],
+      [
+       66
+      ],
+      [
+       74,
+       75
+      ]
+     ],
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-11",
+     "question": "How many titles did GPO catalog in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.37,
+     "context_pages": [
+      [
+       5
+      ],
+      [
+       19,
+       20
+      ],
+      [
+       14,
+       15
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-10",
+     "question": "What was GPO's budget request for fiscal year 2025?",
+     "source": "unanswerable",
+     "answerable": false,
+     "latency": 0.6,
+     "context_pages": [
+      [
+       49
+      ],
+      [
+       77
+      ],
+      [
+       77,
+       78
+      ]
+     ]
+    }
+   ],
+   "summary": {
+    "questions": 11,
+    "hit@k": 1,
+    "mrr": 0.95,
+    "context_recall": 1.0,
+    "avg_latency_s": 0.91
+   }
+  },
+  "advanced-no-rerank": {
+   "rows": [
+    {
+     "id": "gpo-1",
+     "question": "How many depository libraries did GPO staff visit in FY 2018?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.02,
+     "context_pages": [
+      [
+       5
+      ],
+      [
+       21
+      ],
+      [
+       20,
+       21
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-2",
+     "question": "What new digital system replaced FDsys, and when was it fully deployed?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.02,
+     "context_pages": [
+      [
+       4
+      ],
+      [
+       39
+      ],
+      [
+       6,
+       7,
+       8
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       22
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-3",
+     "question": "How much did GPO procure in printing and information products in FY 2018 on behalf of federal agencies?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.02,
+     "context_pages": [
+      [
+       5,
+       6
+      ],
+      [
+       17,
+       18
+      ],
+      [
+       61
+      ],
+      [
+       23
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       66
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-4",
+     "question": "How many copies of how many titles did GPO distribute to depository libraries in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.03,
+     "context_pages": [
+      [
+       19,
+       20
+      ],
+      [
+       5
+      ],
+      [
+       19
+      ],
+      [
+       23,
+       24
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-5",
+     "question": "How many libraries participate in the Federal Depository Library Program?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.03,
+     "context_pages": [
+      [
+       5
+      ],
+      [
+       6,
+       7,
+       8
+      ],
+      [
+       21
+      ],
+      [
+       20
+      ],
+      [
+       79,
+       80
+      ]
+     ],
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-6",
+     "question": "What were GPO's total revenues in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.03,
+     "context_pages": [
+      [
+       26
+      ],
+      [
+       43,
+       44
+      ],
+      [
+       80,
+       81
+      ],
+      [
+       6
+      ],
+      [
+       23,
+       24
+      ],
+      [
+       43
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-7",
+     "question": "How many passports did GPO produce in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.03,
+     "context_pages": [
+      [
+       18
+      ],
+      [
+       47
+      ],
+      [
+       41
+      ],
+      [
+       5,
+       6
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-8",
+     "question": "Who signed the annual report as Acting Deputy Director?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.13,
+     "context_pages": [
+      [
+       4
+      ],
+      [
+       6
+      ]
+     ],
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 0.0
+    },
+    {
+     "id": "gpo-9",
+     "question": "procurement orders vendors",
+     "source": "keywords",
+     "answerable": true,
+     "latency": 0.02,
+     "context_pages": [
+      [
+       45,
+       46
+      ],
+      [
+       66
+      ],
+      [
+       38
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       17,
+       18
+      ]
+     ],
+     "hit": true,
+     "rr": 0.25,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-11",
+     "question": "How many titles did GPO catalog in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.03,
+     "context_pages": [
+      [
+       5
+      ],
+      [
+       19,
+       20
+      ],
+      [
+       40
+      ],
+      [
+       14,
+       15
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-10",
+     "question": "What was GPO's budget request for fiscal year 2025?",
+     "source": "unanswerable",
+     "answerable": false,
+     "latency": 0.03,
+     "context_pages": [
+      [
+       57
+      ],
+      [
+       77
+      ],
+      [
+       31
+      ],
+      [
+       77,
+       78
+      ],
+      [
+       79
+      ]
+     ]
+    }
+   ],
+   "summary": {
+    "questions": 11,
+    "hit@k": 1,
+    "mrr": 0.825,
+    "context_recall": 0.9,
+    "avg_latency_s": 0.04
+   }
+  },
+  "advanced-no-hybrid": {
+   "rows": [
+    {
+     "id": "gpo-1",
+     "question": "How many depository libraries did GPO staff visit in FY 2018?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.61,
+     "context_pages": [
+      [
+       21
+      ],
+      [
+       5
+      ],
+      [
+       19,
+       20
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-2",
+     "question": "What new digital system replaced FDsys, and when was it fully deployed?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.35,
+     "context_pages": [
+      [
+       9,
+       10
+      ],
+      [
+       39
+      ],
+      [
+       22
+      ],
+      [
+       4
+      ],
+      [
+       6,
+       7,
+       8
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-3",
+     "question": "How much did GPO procure in printing and information products in FY 2018 on behalf of federal agencies?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.42,
+     "context_pages": [
+      [
+       5,
+       6
+      ],
+      [
+       14
+      ],
+      [
+       74,
+       75
+      ],
+      [
+       17,
+       18
+      ],
+      [
+       23
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-4",
+     "question": "How many copies of how many titles did GPO distribute to depository libraries in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.95,
+     "context_pages": [
+      [
+       5
+      ],
+      [
+       19,
+       20
+      ],
+      [
+       6,
+       7,
+       8
+      ],
+      [
+       21
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-5",
+     "question": "How many libraries participate in the Federal Depository Library Program?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.04,
+     "context_pages": [
+      [
+       39
+      ],
+      [
+       6,
+       7,
+       8
+      ],
+      [
+       5
+      ],
+      [
+       20,
+       21
+      ],
+      [
+       19,
+       20
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-6",
+     "question": "What were GPO's total revenues in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.07,
+     "context_pages": [
+      [
+       25,
+       26
+      ],
+      [
+       26
+      ],
+      [
+       6
+      ],
+      [
+       23,
+       24
+      ],
+      [
+       14
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-7",
+     "question": "How many passports did GPO produce in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.07,
+     "context_pages": [
+      [
+       18
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       14,
+       15
+      ],
+      [
+       47
+      ],
+      [
+       41
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-8",
+     "question": "Who signed the annual report as Acting Deputy Director?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.68,
+     "context_pages": [
+      [
+       3
+      ],
+      [
+       4
+      ],
+      [
+       10
+      ],
+      [
+       9,
+       10
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-9",
+     "question": "procurement orders vendors",
+     "source": "keywords",
+     "answerable": true,
+     "latency": 1.07,
+     "context_pages": [
+      [
+       45,
+       46
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       38
+      ],
+      [
+       74,
+       75
+      ],
+      [
+       17,
+       18
+      ]
+     ],
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-11",
+     "question": "How many titles did GPO catalog in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.28,
+     "context_pages": [
+      [
+       5
+      ],
+      [
+       19,
+       20
+      ],
+      [
+       14,
+       15
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-10",
+     "question": "What was GPO's budget request for fiscal year 2025?",
+     "source": "unanswerable",
+     "answerable": false,
+     "latency": 1.29,
+     "context_pages": [
+      [
+       49
+      ],
+      [
+       12
+      ],
+      [
+       40
+      ],
+      [
+       25,
+       26
+      ],
+      [
+       33
+      ],
+      [
+       79
+      ]
+     ]
+    }
+   ],
+   "summary": {
+    "questions": 11,
+    "hit@k": 1,
+    "mrr": 0.95,
+    "context_recall": 1.0,
+    "avg_latency_s": 0.89
+   }
+  },
+  "advanced-no-parent": {
+   "rows": [
+    {
+     "id": "gpo-1",
+     "question": "How many depository libraries did GPO staff visit in FY 2018?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.32,
+     "context_pages": [
+      [
+       21
+      ],
+      [
+       5
+      ],
+      [
+       21
+      ],
+      [
+       5
+      ],
+      [
+       19,
+       20
+      ],
+      [
+       19,
+       20
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-2",
+     "question": "What new digital system replaced FDsys, and when was it fully deployed?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.65,
+     "context_pages": [
+      [
+       9,
+       10
+      ],
+      [
+       39
+      ],
+      [
+       22
+      ],
+      [
+       4
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       6,
+       7,
+       8
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-3",
+     "question": "How much did GPO procure in printing and information products in FY 2018 on behalf of federal agencies?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.48,
+     "context_pages": [
+      [
+       5,
+       6
+      ],
+      [
+       14
+      ],
+      [
+       17,
+       18
+      ],
+      [
+       17,
+       18
+      ],
+      [
+       23
+      ],
+      [
+       24
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-4",
+     "question": "How many copies of how many titles did GPO distribute to depository libraries in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.76,
+     "context_pages": [
+      [
+       5
+      ],
+      [
+       19,
+       20
+      ],
+      [
+       5
+      ],
+      [
+       14,
+       15
+      ],
+      [
+       6,
+       7,
+       8
+      ],
+      [
+       19,
+       20
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-5",
+     "question": "How many libraries participate in the Federal Depository Library Program?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.14,
+     "context_pages": [
+      [
+       39
+      ],
+      [
+       6,
+       7,
+       8
+      ],
+      [
+       5
+      ],
+      [
+       20,
+       21
+      ],
+      [
+       20,
+       21
+      ],
+      [
+       19,
+       20
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-6",
+     "question": "What were GPO's total revenues in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.77,
+     "context_pages": [
+      [
+       25,
+       26
+      ],
+      [
+       26
+      ],
+      [
+       6
+      ],
+      [
+       25,
+       26
+      ],
+      [
+       23,
+       24
+      ],
+      [
+       14
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-7",
+     "question": "How many passports did GPO produce in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.0,
+     "context_pages": [
+      [
+       18
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       18
+      ],
+      [
+       14,
+       15
+      ],
+      [
+       47
+      ],
+      [
+       41
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-8",
+     "question": "Who signed the annual report as Acting Deputy Director?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.68,
+     "context_pages": [
+      [
+       3
+      ],
+      [
+       4
+      ],
+      [
+       4
+      ],
+      [
+       4
+      ],
+      [
+       10
+      ],
+      [
+       8,
+       9
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-9",
+     "question": "procurement orders vendors",
+     "source": "keywords",
+     "answerable": true,
+     "latency": 1.09,
+     "context_pages": [
+      [
+       45,
+       46
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       38
+      ],
+      [
+       66
+      ],
+      [
+       74,
+       75
+      ]
+     ],
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-11",
+     "question": "How many titles did GPO catalog in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.33,
+     "context_pages": [
+      [
+       5
+      ],
+      [
+       19,
+       20
+      ],
+      [
+       19,
+       20
+      ],
+      [
+       19,
+       20
+      ],
+      [
+       5
+      ],
+      [
+       14,
+       15
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-10",
+     "question": "What was GPO's budget request for fiscal year 2025?",
+     "source": "unanswerable",
+     "answerable": false,
+     "latency": 0.67,
+     "context_pages": [
+      [
+       49
+      ],
+      [
+       49
+      ],
+      [
+       49
+      ],
+      [
+       49
+      ],
+      [
+       77
+      ],
+      [
+       77,
+       78
+      ]
+     ]
+    }
+   ],
+   "summary": {
+    "questions": 11,
+    "hit@k": 1,
+    "mrr": 0.95,
+    "context_recall": 1.0,
+    "avg_latency_s": 0.99
+   }
+  },
+  "advanced-no-rewrite-no-filters": {
+   "rows": [
+    {
+     "id": "gpo-1",
+     "question": "How many depository libraries did GPO staff visit in FY 2018?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.64,
+     "context_pages": [
+      [
+       21
+      ],
+      [
+       5
+      ],
+      [
+       19,
+       20
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-2",
+     "question": "What new digital system replaced FDsys, and when was it fully deployed?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.65,
+     "context_pages": [
+      [
+       9,
+       10
+      ],
+      [
+       39
+      ],
+      [
+       22
+      ],
+      [
+       4
+      ],
+      [
+       6,
+       7,
+       8
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-3",
+     "question": "How much did GPO procure in printing and information products in FY 2018 on behalf of federal agencies?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.45,
+     "context_pages": [
+      [
+       5,
+       6
+      ],
+      [
+       14
+      ],
+      [
+       25,
+       26
+      ],
+      [
+       11,
+       12
+      ],
+      [
+       74,
+       75
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-4",
+     "question": "How many copies of how many titles did GPO distribute to depository libraries in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.19,
+     "context_pages": [
+      [
+       5
+      ],
+      [
+       19,
+       20
+      ],
+      [
+       14,
+       15
+      ],
+      [
+       6,
+       7,
+       8
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-5",
+     "question": "How many libraries participate in the Federal Depository Library Program?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.16,
+     "context_pages": [
+      [
+       39
+      ],
+      [
+       6,
+       7,
+       8
+      ],
+      [
+       5
+      ],
+      [
+       20,
+       21
+      ],
+      [
+       19,
+       20
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-6",
+     "question": "What were GPO's total revenues in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.4,
+     "context_pages": [
+      [
+       25,
+       26
+      ],
+      [
+       26
+      ],
+      [
+       6
+      ],
+      [
+       23,
+       24
+      ],
+      [
+       14
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-7",
+     "question": "How many passports did GPO produce in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.99,
+     "context_pages": [
+      [
+       18
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       14,
+       15
+      ],
+      [
+       47
+      ],
+      [
+       41
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-8",
+     "question": "Who signed the annual report as Acting Deputy Director?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.66,
+     "context_pages": [
+      [
+       3
+      ],
+      [
+       4
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       10
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-9",
+     "question": "procurement orders vendors",
+     "source": "keywords",
+     "answerable": true,
+     "latency": 1.09,
+     "context_pages": [
+      [
+       45,
+       46
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       38
+      ],
+      [
+       66
+      ],
+      [
+       74,
+       75
+      ]
+     ],
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-11",
+     "question": "How many titles did GPO catalog in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.09,
+     "context_pages": [
+      [
+       5
+      ],
+      [
+       19,
+       20
+      ],
+      [
+       14,
+       15
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "gpo-10",
+     "question": "What was GPO's budget request for fiscal year 2025?",
+     "source": "unanswerable",
+     "answerable": false,
+     "latency": 0.66,
+     "context_pages": [
+      [
+       5,
+       6
+      ],
+      [
+       49
+      ],
+      [
+       77
+      ]
+     ]
+    }
+   ],
+   "summary": {
+    "questions": 11,
+    "hit@k": 1,
+    "mrr": 0.95,
+    "context_recall": 1.0,
+    "avg_latency_s": 0.91
+   }
+  }
+ },
+ "complete": true
+}

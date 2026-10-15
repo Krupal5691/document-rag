@@ -41,3 +41,9 @@ def test_keyword_query_drops_filler():
 def test_options_parse_ablation_names():
     o = Options.parse("advanced-no-rerank-no-hybrid")
     assert (o.rerank, o.hybrid, o.rewrite) == (False, False, True)
+
+
+def test_llm_chapter_guess_needs_lexical_support():
+    from rag_core.query import _mentions
+    assert not _mentions("What were GPO's total revenues in FY 2018?", "FINANCIAL STATEMENTS")
+    assert _mentions("What does the sovereign debt chapter conclude?", "Ch. 3 A Rising Challenge: Sovereign Debt Levels")

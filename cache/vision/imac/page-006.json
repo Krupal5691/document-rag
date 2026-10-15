@@ -1,0 +1,19 @@
+{
+ "elements": [
+  {
+   "type": "diagram",
+   "title": "Packaging Lifecycle Diagram",
+   "content": "A circular lifecycle diagram for iMac showing five stages: DESIGN AND SOURCE, MAKE, PACKAGE AND SHIP, USE, and RECOVER.",
+   "footnotes": []
+  },
+  {
+   "type": "callout",
+   "title": "Packaging Metrics",
+   "content": "100% of the packaging is fiber-based, due to our work to remove plastic in packaging. 76% recycled content in fiber packaging. 100% of the virgin wood fiber in the packaging is responsibly sourced.",
+   "footnotes": [
+    "3",
+    "17"
+   ]
+  }
+ ]
+}

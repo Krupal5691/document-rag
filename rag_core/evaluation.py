@@ -44,43 +44,62 @@ def evaluate(doc_id: str, variants: list[str], with_answers: bool | None = None,
     results = {"doc": doc_id, "date": datetime.now().isoformat(timespec="seconds"),
                "embedder": pipeline.embeddings.dense().name, "answers": with_answers, "variants": {}}
 
-    for variant in variants:
-        rag = pipeline.build(doc_id, variant)
-        rows = []
-        for q in questions:
-            answerable = q.get("answerable", True)
-            t = time.perf_counter()
-            res = rag.ask(q["question"], generate_answer=with_answers)
-            row = {"id": q["id"], "question": q["question"], "source": q.get("source"),
-                   "answerable": answerable, "latency": round(time.perf_counter() - t, 2),
-                   "context_pages": [c.get("pages") or [c.get("page")] for c in res.contexts]}
-            if answerable:
-                expected = set(q["pages"])
-                ranks = [i + 1 for i, c in enumerate(res.contexts)
-                         if expected & set(c.get("pages") or [c.get("page")])]
-                ctx_text = " ".join(c["text"] for c in res.contexts)
-                row.update(hit=bool(ranks), rr=1 / ranks[0] if ranks else 0.0,
-                           context_recall=sum(_contains(ctx_text, g) for g in q["facts"]) / len(q["facts"]))
-            if with_answers:
-                refused = generate.NOT_FOUND.lower()[:30] in res.answer.lower() or "does not contain" in res.answer.lower()
-                row["answer"] = res.answer
-                if answerable:
-                    row["correct"] = (not refused) and all(_contains(res.answer, g) for g in q["facts"])
-                else:
-                    row["correct"] = refused
-                if with_judge:
-                    row["faithful"] = judge(q["question"], res.answer, res.contexts).get("supported")
-            rows.append(row)
+    # Question-major order: every variant answers question 1, then question 2, ... so that when the
+    # free-tier quota forces a switch to another model, paired answers still come from the same model.
+    rags = {v: pipeline.build(doc_id, v) for v in variants}
+    rows: dict[str, list[dict]] = {v: [] for v in variants}
+    stopped = None
+    for q in questions:
+        if stopped:
+            break
+        for variant, rag in rags.items():
+            try:
+                row = _score(q, rag, with_answers, with_judge)
+            except llm.QuotaExhaustedError as e:
+                stopped = f"stopped at {q['id']}: {e}"[:300]
+                progress(f"  quota exhausted - partial results saved ({stopped})")
+                break
+            rows[variant].append(row)
             progress(f"  [{variant}] {q['id']}: " + ", ".join(
                 f"{k}={row[k]:.2f}" if isinstance(row.get(k), float) else f"{k}={row[k]}"
-                for k in ("hit", "context_recall", "correct") if k in row))
-        results["variants"][variant] = {"rows": rows, "summary": summarize(rows)}
+                for k in ("hit", "context_recall", "correct", "model") if k in row))
+    n = min(len(r) for r in rows.values())                 # keep variants aligned on the same questions
+    for variant in variants:
+        results["variants"][variant] = {"rows": rows[variant][:n], "summary": summarize(rows[variant][:n])}
+    results["complete"] = stopped is None
+    if stopped:
+        results["stopped"] = stopped
 
     out = config.EVAL_DIR / "results"
     out.mkdir(parents=True, exist_ok=True)
-    (out / f"{doc_id}.json").write_text(json.dumps(results, indent=1))
-    (out / f"{doc_id}.md").write_text(to_markdown(results))
+    name = doc_id if with_answers else f"{doc_id}-retrieval"     # retrieval-only runs never overwrite answer runs
+    (out / f"{name}.json").write_text(json.dumps(results, indent=1))
+    (out / f"{name}.md").write_text(to_markdown(results))
     return results
+
+
+def _score(q: dict, rag, with_answers: bool, with_judge: bool) -> dict:
+    answerable = q.get("answerable", True)
+    t = time.perf_counter()
+    res = rag.ask(q["question"], generate_answer=with_answers, cache_answers=True)
+    row = {"id": q["id"], "question": q["question"], "source": q.get("source"),
+           "answerable": answerable, "latency": round(time.perf_counter() - t, 2),
+           "context_pages": [c.get("pages") or [c.get("page")] for c in res.contexts]}
+    if answerable:
+        expected = set(q["pages"])
+        ranks = [i + 1 for i, c in enumerate(res.contexts) if expected & set(c.get("pages") or [c.get("page")])]
+        ctx_text = " ".join(c["text"] for c in res.contexts)
+        row.update(hit=bool(ranks), rr=1 / ranks[0] if ranks else 0.0,
+                   context_recall=sum(_contains(ctx_text, g) for g in q["facts"]) / len(q["facts"]))
+    if with_answers:
+        low = res.answer.lower()
+        refused = "does not contain" in low or generate.NOT_FOUND.lower()[:30] in low
+        row["answer"] = res.answer
+        row["model"] = res.trace.get("answer_model")
+        row["correct"] = ((not refused) and all(_contains(res.answer, g) for g in q["facts"])) if answerable else refused
+        if with_judge:
+            row["faithful"] = judge(q["question"], res.answer, res.contexts).get("supported")
+    return row
 
 
 def summarize(rows: list[dict]) -> dict:
@@ -104,7 +123,8 @@ def to_markdown(results: dict) -> str:
     metrics = [m for m in ("hit@k", "mrr", "context_recall", "accuracy", "faithfulness", "avg_latency_s")
                if any(m in v["summary"] for v in variants.values())]
     lines = [f"# Evaluation: {results['doc']}", "",
-             f"Run {results['date']} · embeddings `{results['embedder']}` · answers generated: {results['answers']}", "",
+             f"Run {results['date']} · embeddings `{results['embedder']}` · answers generated: {results['answers']}"
+             + ("" if results.get("complete", True) else f" · **partial run** ({results.get('stopped')})"), "",
              "| Variant | " + " | ".join(metrics) + " |", "|---|" + "---|" * len(metrics)]
     for name, v in variants.items():
         cells = []

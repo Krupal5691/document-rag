@@ -1,8 +1,8 @@
 {
  "doc": "worldbank",
- "date": "2026-10-15T16:18:58",
+ "date": "2026-10-15T22:44:46",
  "embedder": "local-bge-small-en-v1.5",
- "answers": false,
+ "answers": true,
  "variants": {
   "naive": {
    "rows": [
@@ -11,7 +11,7 @@
      "question": "What is the growth outlook for South Asia in this report?",
      "source": "brief",
      "answerable": true,
-     "latency": 0.02,
+     "latency": 0.01,
      "context_pages": [
       [
        96
@@ -31,7 +31,10 @@
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "Growth in SAR is expected to soften to 6.3 percent in 2026, mainly reflecting the adverse impact of the conflict in the Middle East [1].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "wb-2",
@@ -58,7 +61,10 @@
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "Chapter 3 is titled \"A Rising Challenge: Sovereign Debt Levels and Interest Rates in EMDEs\" [1][3]. It discusses topics such as sovereign spreads, domestic-currency yields in relation to the government debt-to-GDP ratio, forecast data regressions, and the lower debt-sensitivity of domestic-currency yields [2][4][5].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "wb-3",
@@ -85,7 +91,10 @@
      ],
      "hit": false,
      "rr": 0.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "The document does not contain this information.",
+     "model": "gemini-3.5-flash-lite",
+     "correct": false
     },
     {
      "id": "wb-4",
@@ -112,7 +121,10 @@
      ],
      "hit": true,
      "rr": 0.3333333333333333,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "Global growth is projected to be 2.5 percent in 2026 [3].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "wb-5",
@@ -139,7 +151,10 @@
      ],
      "hit": true,
      "rr": 0.5,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "India's growth forecast for fiscal year 2026/27 is 6.6 percent [5].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "wb-6",
@@ -166,7 +181,10 @@
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "Growth in the East Asia and Pacific (EAP) region is projected to moderate to 4.2 percent in 2026 [1].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "wb-7",
@@ -193,7 +211,10 @@
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 0.0
+     "context_recall": 0.0,
+     "answer": "The document does not contain this information.",
+     "model": "gemini-3.5-flash-lite",
+     "correct": false
     },
     {
      "id": "wb-8",
@@ -220,7 +241,10 @@
      ],
      "hit": true,
      "rr": 0.25,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "- About 110 basis points [4].\n- A cumulative 114 basis points, according to non-linear models for the period 2010\u201324 [2].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "wb-9",
@@ -247,7 +271,40 @@
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "Growth in SAR is expected to soften to 6.3 percent in 2026 [1], and is projected at 6.3 for 2026f [3]. This softening mainly reflects the adverse impact of the conflict in the Middle East [1], and for SAR excluding Bangladesh and India, heightened uncertainty and higher input costs [5].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
+    },
+    {
+     "id": "wb-11",
+     "question": "What is Bangladesh's growth forecast for fiscal year 2026/27?",
+     "source": "table",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       98
+      ],
+      [
+       97
+      ],
+      [
+       97
+      ],
+      [
+       5
+      ],
+      [
+       79
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0,
+     "answer": "The document does not contain this information.",
+     "model": "gemini-3.5-flash-lite",
+     "correct": false
     },
     {
      "id": "wb-10",
@@ -271,25 +328,29 @@
       [
        187
       ]
-     ]
+     ],
+     "answer": "The document does not contain this information.",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     }
    ],
    "summary": {
-    "questions": 10,
-    "hit@k": 0.8888888888888888,
-    "mrr": 0.6759259259259259,
-    "context_recall": 0.8888888888888888,
-    "avg_latency_s": 0.01
+    "questions": 11,
+    "hit@k": 0.9,
+    "mrr": 0.7083333333333334,
+    "context_recall": 0.9,
+    "avg_latency_s": 0.01,
+    "accuracy": 0.7272727272727273
    }
   },
-  "advanced-no-rewrite": {
+  "advanced": {
    "rows": [
     {
      "id": "wb-1",
      "question": "What is the growth outlook for South Asia in this report?",
      "source": "brief",
      "answerable": true,
-     "latency": 3.84,
+     "latency": 1.42,
      "context_pages": [
       [
        96
@@ -306,570 +367,33 @@
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "Growth in South Asia (SAR) is expected to soften to 6.3 percent in 2026, primarily due to the adverse impact of the conflict in the Middle East [1][4]. Growth is then set to pick up to an average rate of 7 percent per year in 2027\u201328, or 6.9 percent in 2027f and 7.1 percent in 2028f [1][4].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "wb-2",
      "question": "What does Chapter 3 say about sovereign debt in developing economies?",
      "source": "brief",
      "answerable": true,
-     "latency": 1.08,
+     "latency": 0.82,
      "context_pages": [
       [
        109
       ],
       [
-       110,
-       111
-      ],
-      [
        109
-      ],
-      [
-       112,
-       113
-      ],
-      [
-       110
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "wb-3",
-     "question": "According to the executive summary, what are the main risks to the global outlook?",
-     "source": "brief",
-     "answerable": true,
-     "latency": 1.07,
-     "context_pages": [
-      [
-       19
-      ],
-      [
-       19,
-       20
-      ],
-      [
-       20
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "wb-4",
-     "question": "What is global growth projected to be in 2026?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 0.8,
-     "context_pages": [
-      [
-       19
-      ],
-      [
-       40
-      ],
-      [
-       25
-      ],
-      [
-       36
-      ],
-      [
-       27
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "wb-5",
-     "question": "What is India's growth forecast for fiscal year 2026/27?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 2.84,
-     "context_pages": [
-      [
-       96
-      ],
-      [
-       97
-      ],
-      [
-       190
-      ],
-      [
-       98
-      ],
-      [
-       98
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "wb-6",
-     "question": "What growth is projected for East Asia and Pacific in 2026?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 3.13,
-     "context_pages": [
-      [
-       81
-      ],
-      [
-       82
-      ],
-      [
-       82
-      ],
-      [
-       83
-      ],
-      [
-       83
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "wb-7",
-     "question": "What is the 2026 growth forecast for Sub-Saharan Africa?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 3.27,
-     "context_pages": [
-      [
-       99
-      ],
-      [
-       100
-      ],
-      [
-       100
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "wb-8",
-     "question": "By how much are sovereign spreads associated with the rise in EMDE debt since 2010?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 1.25,
-     "context_pages": [
-      [
-       19,
-       20
-      ],
-      [
-       109
-      ],
-      [
-       122
-      ],
-      [
-       120
-      ]
-     ],
-     "hit": true,
-     "rr": 0.5,
-     "context_recall": 1.0
-    },
-    {
-     "id": "wb-9",
-     "question": "SAR growth 2026",
-     "source": "keywords",
-     "answerable": true,
-     "latency": 2.53,
-     "context_pages": [
-      [
-       96
-      ],
-      [
-       97
-      ],
-      [
-       98
-      ],
-      [
-       98
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "wb-10",
-     "question": "What is the population of Tokyo?",
-     "source": "unanswerable",
-     "answerable": false,
-     "latency": 4.11,
-     "context_pages": [
-      [
-       187
-      ],
-      [
-       40,
-       41
-      ],
-      [
-       187,
-       188
-      ],
-      [
-       56
-      ]
-     ]
-    }
-   ],
-   "summary": {
-    "questions": 10,
-    "hit@k": 1,
-    "mrr": 0.9444444444444444,
-    "context_recall": 1.0,
-    "avg_latency_s": 2.39
-   }
-  },
-  "advanced-no-rewrite-no-rerank": {
-   "rows": [
-    {
-     "id": "wb-1",
-     "question": "What is the growth outlook for South Asia in this report?",
-     "source": "brief",
-     "answerable": true,
-     "latency": 0.41,
-     "context_pages": [
-      [
-       98
-      ],
-      [
-       96
-      ],
-      [
-       97
-      ],
-      [
-       98
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "wb-2",
-     "question": "What does Chapter 3 say about sovereign debt in developing economies?",
-     "source": "brief",
-     "answerable": true,
-     "latency": 0.17,
-     "context_pages": [
-      [
-       141
-      ],
-      [
-       139,
-       140
-      ],
-      [
-       110
-      ],
-      [
-       109
-      ],
-      [
-       139
-      ],
-      [
-       113
-      ]
-     ],
-     "hit": true,
-     "rr": 0.3333333333333333,
-     "context_recall": 1.0
-    },
-    {
-     "id": "wb-3",
-     "question": "According to the executive summary, what are the main risks to the global outlook?",
-     "source": "brief",
-     "answerable": true,
-     "latency": 0.14,
-     "context_pages": [
-      [
-       19
-      ],
-      [
-       20
-      ],
-      [
-       19,
-       20
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "wb-4",
-     "question": "What is global growth projected to be in 2026?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 0.06,
-     "context_pages": [
-      [
-       40
-      ],
-      [
-       50,
-       51
-      ],
-      [
-       19
-      ],
-      [
-       78
-      ],
-      [
-       25
-      ],
-      [
-       96
-      ]
-     ],
-     "hit": true,
-     "rr": 0.3333333333333333,
-     "context_recall": 1.0
-    },
-    {
-     "id": "wb-5",
-     "question": "What is India's growth forecast for fiscal year 2026/27?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 0.1,
-     "context_pages": [
-      [
-       96
-      ],
-      [
-       98
-      ],
-      [
-       97
-      ],
-      [
-       98
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "wb-6",
-     "question": "What growth is projected for East Asia and Pacific in 2026?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 0.14,
-     "context_pages": [
-      [
-       82
-      ],
-      [
-       82
-      ],
-      [
-       81
-      ],
-      [
-       83
-      ],
-      [
-       83
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "wb-7",
-     "question": "What is the 2026 growth forecast for Sub-Saharan Africa?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 0.14,
-     "context_pages": [
-      [
-       101
-      ],
-      [
-       100
-      ],
-      [
-       102
-      ],
-      [
-       100
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "wb-8",
-     "question": "By how much are sovereign spreads associated with the rise in EMDE debt since 2010?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 0.09,
-     "context_pages": [
-      [
-       109
-      ],
-      [
-       120
-      ],
-      [
-       19,
-       20
-      ],
-      [
-       112
-      ],
-      [
-       120
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "wb-9",
-     "question": "SAR growth 2026",
-     "source": "keywords",
-     "answerable": true,
-     "latency": 0.12,
-     "context_pages": [
-      [
-       97
-      ],
-      [
-       96
-      ],
-      [
-       98
-      ],
-      [
-       98
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "wb-10",
-     "question": "What is the population of Tokyo?",
-     "source": "unanswerable",
-     "answerable": false,
-     "latency": 0.05,
-     "context_pages": [
-      [
-       40,
-       41
-      ],
-      [
-       191
-      ],
-      [
-       74
-      ],
-      [
-       52
-      ],
-      [
-       56
-      ],
-      [
-       17,
-       18
-      ]
-     ]
-    }
-   ],
-   "summary": {
-    "questions": 10,
-    "hit@k": 1,
-    "mrr": 0.8518518518518519,
-    "context_recall": 1.0,
-    "avg_latency_s": 0.14
-   }
-  },
-  "advanced-no-rewrite-no-hybrid": {
-   "rows": [
-    {
-     "id": "wb-1",
-     "question": "What is the growth outlook for South Asia in this report?",
-     "source": "brief",
-     "answerable": true,
-     "latency": 3.04,
-     "context_pages": [
-      [
-       96
-      ],
-      [
-       97
-      ],
-      [
-       98
-      ],
-      [
-       98
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "wb-2",
-     "question": "What does Chapter 3 say about sovereign debt in developing economies?",
-     "source": "brief",
-     "answerable": true,
-     "latency": 1.78,
-     "context_pages": [
-      [
-       109
-      ],
-      [
-       110,
-       111
-      ],
-      [
-       128,
-       129,
-       130
-      ],
-      [
-       139
       ],
       [
        116
       ],
       [
-       141
+       110,
+       111
+      ],
+      [
+       116
       ],
       [
        110
@@ -877,14 +401,17 @@
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "Chapter 3 states that rising government debt in emerging market and developing economies (EMDEs) leads to higher interest rates, higher debt-service payments, and a greater likelihood of debt distress [1]. Specifically, aggregate government debt in EMDEs increased from less than 40 percent of GDP in 2010 to over 70 percent, while the cost of servicing government debt rose from 6 percent of government revenues in 2010 to an estimated 11 percent in 2025 [2]. The rise in EMDE debt-to-GDP ratios since 2010 is associated with increases in sovereign spreads and domestic-currency yields of about 110 and 30 basis points, respectively [1].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "wb-3",
      "question": "According to the executive summary, what are the main risks to the global outlook?",
      "source": "brief",
      "answerable": true,
-     "latency": 1.04,
+     "latency": 0.74,
      "context_pages": [
       [
        19
@@ -892,25 +419,22 @@
       [
        19,
        20
-      ],
-      [
-       20
       ]
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "The main risks to the global outlook are skewed to the downside and include:\n* A renewed escalation of hostilities or more prolonged disruptions to commodity flows, which could further raise commodity prices, intensify inflationary pressures and food insecurity, trigger financial stress, and lower growth (potentially dropping global growth to just 1.3 percent in 2026 if energy supply disruptions are more severe and accompanied by substantial financial stress) [1].\n* Persistent trade policy uncertainty [1].\n* Geopolitical strains [1].\n* Weather-related shocks [1]. \n\nOn the upside, broader investment in and adoption of artificial intelligence (AI) could lift activity [1].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "wb-4",
      "question": "What is global growth projected to be in 2026?",
      "source": "extra",
      "answerable": true,
-     "latency": 1.02,
+     "latency": 2.76,
      "context_pages": [
-      [
-       19
-      ],
       [
        40
       ],
@@ -922,21 +446,30 @@
       ],
       [
        27
+      ],
+      [
+       36
       ]
      ],
      "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
+     "rr": 0.5,
+     "context_recall": 1.0,
+     "answer": "Global growth is projected to be 2.5 percent in 2026 [2][4]. If energy supply disruptions prove to be more severe than assumed and are accompanied by substantial financial stress, global growth could fall to just 1.3 percent in 2026 [2].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "wb-5",
      "question": "What is India's growth forecast for fiscal year 2026/27?",
      "source": "extra",
      "answerable": true,
-     "latency": 5.66,
+     "latency": 2.17,
      "context_pages": [
       [
        96
+      ],
+      [
+       97
       ],
       [
        97
@@ -950,14 +483,17 @@
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "India's growth is projected to moderate to 6.6 percent in fiscal year 2026/27 (April 2026 to March 2027) [1][4].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "wb-6",
      "question": "What growth is projected for East Asia and Pacific in 2026?",
      "source": "extra",
      "answerable": true,
-     "latency": 3.2,
+     "latency": 3.08,
      "context_pages": [
       [
        81
@@ -977,23 +513,23 @@
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "Growth in East Asia and Pacific (EAP) is projected to be 4.2 percent in 2026 [1][4].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "wb-7",
      "question": "What is the 2026 growth forecast for Sub-Saharan Africa?",
      "source": "extra",
      "answerable": true,
-     "latency": 3.76,
+     "latency": 2.61,
      "context_pages": [
       [
        99
       ],
       [
        100
-      ],
-      [
-       99
       ],
       [
        100
@@ -1001,19 +537,18 @@
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "4 percent in 2026 [1].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "wb-8",
      "question": "By how much are sovereign spreads associated with the rise in EMDE debt since 2010?",
      "source": "extra",
      "answerable": true,
-     "latency": 1.36,
+     "latency": 1.54,
      "context_pages": [
-      [
-       19,
-       20
-      ],
       [
        109
       ],
@@ -1022,18 +557,30 @@
       ],
       [
        112
+      ],
+      [
+       120
+      ],
+      [
+       133
+      ],
+      [
+       122
       ]
      ],
      "hit": true,
-     "rr": 0.5,
-     "context_recall": 1.0
+     "rr": 1.0,
+     "context_recall": 1.0,
+     "answer": "The rise in EMDE debt since 2010 is associated with an increase in sovereign spreads of about 110 basis points [1], or 114 basis points [2][3][4].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "wb-9",
      "question": "SAR growth 2026",
      "source": "keywords",
      "answerable": true,
-     "latency": 2.44,
+     "latency": 2.38,
      "context_pages": [
       [
        96
@@ -1050,42 +597,76 @@
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "Growth in SAR is expected to soften to 6.3 percent in 2026 [1][3].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
+    },
+    {
+     "id": "wb-11",
+     "question": "What is Bangladesh's growth forecast for fiscal year 2026/27?",
+     "source": "table",
+     "answerable": true,
+     "latency": 2.63,
+     "context_pages": [
+      [
+       96
+      ],
+      [
+       98
+      ],
+      [
+       97
+      ],
+      [
+       98
+      ]
+     ],
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 1.0,
+     "answer": "Based on the provided document, the growth forecast for Bangladesh in fiscal year 2026/27 (listed under fiscal-year basis as 2026/27f) is 4.6 percent [2].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "wb-10",
      "question": "What is the population of Tokyo?",
      "source": "unanswerable",
      "answerable": false,
-     "latency": 3.06,
+     "latency": 2.77,
      "context_pages": [
-      [
-       187
-      ],
       [
        40,
        41
-      ],
-      [
-       187,
-       188
       ],
       [
        26
       ],
       [
        56
+      ],
+      [
+       74
+      ],
+      [
+       191
       ]
-     ]
+     ],
+     "answer": "The document does not contain this information.",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     }
    ],
    "summary": {
-    "questions": 10,
+    "questions": 11,
     "hit@k": 1,
-    "mrr": 0.9444444444444444,
+    "mrr": 0.9,
     "context_recall": 1.0,
-    "avg_latency_s": 2.64
+    "avg_latency_s": 2.08,
+    "accuracy": 1
    }
   }
- }
+ },
+ "complete": true
 }

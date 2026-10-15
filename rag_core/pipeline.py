@@ -36,7 +36,7 @@ class Options:
     top_k: int = 6
 
     @classmethod
-    def parse(cls, spec: str) -> "Options":
+    def parse(cls, spec: str) -> Options:
         """'advanced' or 'advanced-no-rerank-no-hybrid' style names used by the evaluator."""
         opts = cls()
         for part in spec.split("-no-")[1:]:
@@ -88,10 +88,15 @@ def parse_with_vision(cfg: DocConfig, progress=print) -> tuple[ParsedDocument, d
     return parsed, status
 
 
-def ingest(doc_id: str, variants=("naive", "advanced"), progress=print) -> dict:
+def ingest(doc_id: str, variants=("naive", "advanced"), progress=print, skip_existing: bool = False) -> dict:
     cfg = documents.get(doc_id)
     embedder = embeddings.dense()
     stats = {"doc": doc_id, "embedder": embedder.name}
+    if skip_existing:
+        variants = [v for v in variants
+                    if not VectorIndex(_index_name(doc_id, v), embedder).exists()
+                    or (v == "advanced" and not VectorIndex(_index_name(doc_id, v), embedder).parents)]
+        stats["built"] = list(variants)
     if "naive" in variants:
         chunks = naive_chunks(cfg)
         VectorIndex(_index_name(doc_id, "naive"), embedder, use_sparse=False).build(chunks, progress=progress)
@@ -121,13 +126,14 @@ class NaiveRAG:
                      "section_path": [], "chunk_id": h.id, "score": h.score} for h in hits]
         return contexts, {"dense": _brief(hits)}, {"retrieve": time.perf_counter() - t}
 
-    def ask(self, question: str, generate_answer: bool = True) -> RAGResult:
+    def ask(self, question: str, generate_answer: bool = True, cache_answers: bool = False) -> RAGResult:
         contexts, trace, timings = self.retrieve(question)
         result = RAGResult(question, "", contexts, trace=trace, timings=timings)
         if generate_answer:
             t = time.perf_counter()
-            gen = generate.answer(question, contexts)
+            gen = generate.answer(question, contexts, cache=cache_answers)
             result.answer, result.cited = gen.text, gen.cited
+            result.trace["answer_model"] = llm.LAST_MODEL
             result.timings["generate"] = time.perf_counter() - t
         return result
 
@@ -251,13 +257,14 @@ class AdvancedRAG:
                 trace["linked"] = linked
         return contexts
 
-    def ask(self, question: str, generate_answer: bool = True) -> RAGResult:
+    def ask(self, question: str, generate_answer: bool = True, cache_answers: bool = False) -> RAGResult:
         contexts, trace, timings = self.retrieve(question)
         result = RAGResult(question, "", contexts, trace=trace, timings=timings)
         if generate_answer:
             t = time.perf_counter()
-            gen = generate.answer(question, contexts)
+            gen = generate.answer(question, contexts, cache=cache_answers)
             result.answer, result.cited = gen.text, gen.cited
+            result.trace["answer_model"] = llm.LAST_MODEL
             result.timings["generate"] = time.perf_counter() - t
         return result
 

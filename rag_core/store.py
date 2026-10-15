@@ -15,6 +15,7 @@ from .chunking import Chunk
 from .embeddings import DenseEmbedder, sparse
 
 DENSE, SPARSE = "dense", "bm25"
+FILTER_FIELDS = ("doc_id", "region", "chapter", "kind", "label")
 
 
 @dataclass
@@ -78,7 +79,7 @@ class VectorIndex:
         dense_vecs = self.embedder.embed_documents(texts)
         sparse_vecs = sparse().embed_documents(texts) if self.use_sparse else [None] * len(texts)
         points = []
-        for c, dv, sv in zip(chunks, dense_vecs, sparse_vecs):
+        for c, dv, sv in zip(chunks, dense_vecs, sparse_vecs, strict=True):
             vector = {DENSE: dv}
             if sv:
                 vector[SPARSE] = models.SparseVector(indices=sv[0], values=sv[1])
@@ -87,6 +88,9 @@ class VectorIndex:
                                                       "embed_text": c.embed_text, **c.metadata}))
         for start in range(0, len(points), 256):
             db.upsert(self.name, points[start:start + 256])
+        if config.QDRANT_URL:          # payload indexes keep filtered search fast on a server (no-op locally)
+            for field_name in FILTER_FIELDS:
+                db.create_payload_index(self.name, field_name, field_schema=models.PayloadSchemaType.KEYWORD)
         self.parents_path.parent.mkdir(parents=True, exist_ok=True)
         self.parents_path.write_text(json.dumps(parents or {}))
         self._parents = parents or {}

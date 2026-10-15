@@ -1,22 +1,169 @@
 [
-  {"id": "gpo-1", "source": "brief", "question": "How many depository libraries did GPO staff visit in FY 2018?",
-   "facts": [["166"]], "pages": [5, 21]},
-  {"id": "gpo-2", "source": "brief", "question": "What new digital system replaced FDsys, and when was it fully deployed?",
-   "facts": [["govinfo"], ["2018"]], "pages": [4, 8, 10]},
-  {"id": "gpo-3", "source": "brief", "question": "How much did GPO procure in printing and information products in FY 2018 on behalf of federal agencies?",
-   "facts": [["375"]], "pages": [5, 14]},
-  {"id": "gpo-4", "source": "extra", "question": "How many copies of how many titles did GPO distribute to depository libraries in FY 2018?",
-   "facts": [["802,834"], ["4,211"]], "pages": [5, 15, 19]},
-  {"id": "gpo-5", "source": "extra", "question": "How many libraries participate in the Federal Depository Library Program?",
-   "facts": [["1,133"]], "pages": [8, 15]},
-  {"id": "gpo-6", "source": "extra", "question": "What were GPO's total revenues in FY 2018?",
-   "facts": [["874"]], "pages": [14]},
-  {"id": "gpo-7", "source": "extra", "question": "How many passports did GPO produce in FY 2018?",
-   "facts": [["15,901,600", "15.9 million"]], "pages": [14]},
-  {"id": "gpo-8", "source": "extra", "question": "Who signed the annual report as Acting Deputy Director?",
-   "facts": [["Crawford"]], "pages": [3, 6]},
-  {"id": "gpo-9", "source": "keywords", "question": "procurement orders vendors",
-   "facts": [["84,000", "84,111"]], "pages": [5, 14]},
-  {"id": "gpo-10", "source": "unanswerable", "question": "What was GPO's budget request for fiscal year 2025?",
-   "answerable": false}
+ {
+  "id": "gpo-1",
+  "source": "brief",
+  "question": "How many depository libraries did GPO staff visit in FY 2018?",
+  "facts": [
+   [
+    "166"
+   ]
+  ],
+  "pages": [
+   5,
+   21
+  ]
+ },
+ {
+  "id": "gpo-2",
+  "source": "brief",
+  "question": "What new digital system replaced FDsys, and when was it fully deployed?",
+  "facts": [
+   [
+    "govinfo"
+   ],
+   [
+    "2018"
+   ]
+  ],
+  "pages": [
+   4,
+   8,
+   10
+  ]
+ },
+ {
+  "id": "gpo-3",
+  "source": "brief",
+  "question": "How much did GPO procure in printing and information products in FY 2018 on behalf of federal agencies?",
+  "facts": [
+   [
+    "375"
+   ]
+  ],
+  "pages": [
+   5,
+   14,
+   17
+  ]
+ },
+ {
+  "id": "gpo-4",
+  "source": "extra",
+  "question": "How many copies of how many titles did GPO distribute to depository libraries in FY 2018?",
+  "facts": [
+   [
+    "802,834"
+   ],
+   [
+    "4,211"
+   ]
+  ],
+  "pages": [
+   5,
+   15,
+   19
+  ]
+ },
+ {
+  "id": "gpo-5",
+  "source": "extra",
+  "question": "How many libraries participate in the Federal Depository Library Program?",
+  "facts": [
+   [
+    "1,133"
+   ]
+  ],
+  "pages": [
+   8,
+   15,
+   19,
+   39
+  ]
+ },
+ {
+  "id": "gpo-6",
+  "source": "extra",
+  "question": "What were GPO's total revenues in FY 2018?",
+  "facts": [
+   [
+    "874"
+   ]
+  ],
+  "pages": [
+   6,
+   14,
+   25,
+   26,
+   43,
+   59
+  ]
+ },
+ {
+  "id": "gpo-7",
+  "source": "extra",
+  "question": "How many passports did GPO produce in FY 2018?",
+  "facts": [
+   [
+    "15,901,600",
+    "15.9 million",
+    "16 million"
+   ]
+  ],
+  "pages": [
+   14,
+   18
+  ]
+ },
+ {
+  "id": "gpo-8",
+  "source": "extra",
+  "question": "Who signed the annual report as Acting Deputy Director?",
+  "facts": [
+   [
+    "Crawford"
+   ]
+  ],
+  "pages": [
+   3,
+   6,
+   28
+  ]
+ },
+ {
+  "id": "gpo-9",
+  "source": "keywords",
+  "question": "procurement orders vendors",
+  "facts": [
+   [
+    "84,000",
+    "84,111"
+   ]
+  ],
+  "pages": [
+   5,
+   14,
+   17
+  ]
+ },
+ {
+  "id": "gpo-11",
+  "source": "extra",
+  "question": "How many titles did GPO catalog in FY 2018?",
+  "facts": [
+   [
+    "34,367"
+   ]
+  ],
+  "pages": [
+   5,
+   15,
+   19
+  ]
+ },
+ {
+  "id": "gpo-10",
+  "source": "unanswerable",
+  "question": "What was GPO's budget request for fiscal year 2025?",
+  "answerable": false
+ }
 ]

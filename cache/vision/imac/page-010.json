@@ -1,0 +1,18 @@
+{
+ "elements": [
+  {
+   "type": "table",
+   "title": "Greenhouse gas emissions",
+   "content": "Total product footprint - iMac (two ports) 256GB: 346 kg CO2e; Apple emissions from utility-purchased electricity (scope 2) - iMac (two ports) 256GB: 0 kg CO2e; Life cycle product emissions (scope 3) - iMac (two ports) 256GB: 346 kg CO2e; Production - iMac (two ports) 256GB: 50%; Transportation - iMac (two ports) 256GB: 5%; Product use - iMac (two ports) 256GB: 45%; End-of-life processing - iMac (two ports) 256GB: <1%; GHG reductions achieved - iMac (two ports) 256GB: ↓>20%",
+   "footnotes": [
+    "7"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Product carbon footprint for configuration",
+   "content": "iMac (four ports) 512GB - iMac (four ports) 512GB: 391 kg CO2e",
+   "footnotes": []
+  }
+ ]
+}

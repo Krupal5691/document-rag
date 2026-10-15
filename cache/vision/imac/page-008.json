@@ -1,0 +1,16 @@
+{
+ "elements": [
+  {
+   "type": "diagram",
+   "title": "Product Life Cycle - Recover",
+   "content": "A circular diagram showing five life cycle stages: DESIGN AND SOURCE (recycling icon), MAKE (solar panel icon), PACKAGE AND SHIP (globe icon), USE (plant icon), and RECOVER (hand holding plant icon). The RECOVER stage is highlighted.",
+   "footnotes": []
+  },
+  {
+   "type": "callout",
+   "title": "Apple Trade In",
+   "content": "For more information on how to recycle your products at end of life, visit: apple.com/recycle",
+   "footnotes": []
+  }
+ ]
+}

@@ -1,8 +1,8 @@
 {
  "doc": "gpo",
- "date": "2026-10-15T16:16:37",
+ "date": "2026-10-15T22:44:31",
  "embedder": "local-bge-small-en-v1.5",
- "answers": false,
+ "answers": true,
  "variants": {
   "naive": {
    "rows": [
@@ -11,7 +11,7 @@
      "question": "How many depository libraries did GPO staff visit in FY 2018?",
      "source": "brief",
      "answerable": true,
-     "latency": 0.34,
+     "latency": 0.21,
      "context_pages": [
       [
        5
@@ -31,7 +31,10 @@
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "In FY 2018, GPO staff visited 166 depository libraries in 25 states [1][4].",
+     "model": "gemini-3.7-flash",
+     "correct": true
     },
     {
      "id": "gpo-2",
@@ -58,7 +61,10 @@
      ],
      "hit": true,
      "rr": 0.3333333333333333,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "The new digital system is govinfo (www.govinfo.gov), which was scheduled to replace FDsys in December 2018 [1][3]. govinfo offers significantly enhanced functionality and took the place of FDsys when it was retired [3].",
+     "model": "gemini-3-flash-preview",
+     "correct": true
     },
     {
      "id": "gpo-3",
@@ -85,7 +91,10 @@
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "In FY 2018, GPO procured more than $375 million worth of printing and other information products on behalf of its Federal agency partners [2]. This work consisted of more than 84,000 specific orders fulfilled by thousands of private-sector vendors [2].",
+     "model": "gemini-3.7-flash",
+     "correct": true
     },
     {
      "id": "gpo-4",
@@ -112,7 +121,10 @@
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "In FY 2018, GPO distributed 802,834 copies of 4,211 titles to depository libraries nationwide [3][4].",
+     "model": "gemini-3.7-flash",
+     "correct": true
     },
     {
      "id": "gpo-5",
@@ -137,9 +149,12 @@
        19
       ]
      ],
-     "hit": false,
-     "rr": 0.0,
-     "context_recall": 1.0
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 1.0,
+     "answer": "1,133 designated Federal depository libraries (or a network of 1,133 public, academic, law, and other libraries) participate in the Federal Depository Library Program [4][5].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "gpo-6",
@@ -164,9 +179,12 @@
        27
       ]
      ],
-     "hit": false,
-     "rr": 0.0,
-     "context_recall": 1.0
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0,
+     "answer": "$874.5 million. GPO\u2019s consolidated revenues (net of eliminations) totaled $874.5 million in fiscal 2018 and were primarily derived from Printing & Binding and Appropriations [2][3].",
+     "model": "gemini-3-flash-preview",
+     "correct": true
     },
     {
      "id": "gpo-7",
@@ -191,16 +209,19 @@
        26
       ]
      ],
-     "hit": false,
-     "rr": 0.0,
-     "context_recall": 0.0
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 1.0,
+     "answer": "In FY 2018, GPO produced 16 million passports for the State Department [2].",
+     "model": "gemini-3.7-flash",
+     "correct": true
     },
     {
      "id": "gpo-8",
      "question": "Who signed the annual report as Acting Deputy Director?",
      "source": "extra",
      "answerable": true,
-     "latency": 0.01,
+     "latency": 0.0,
      "context_pages": [
       [
        3
@@ -220,7 +241,10 @@
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "JOHN W. CRAWFORD signed the annual report as Acting Deputy Director [1].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "gpo-9",
@@ -247,7 +271,40 @@
      ],
      "hit": false,
      "rr": 0.0,
-     "context_recall": 0.0
+     "context_recall": 0.0,
+     "answer": "* Customer Services contracted with commercial printing vendors to produce and ship orders for GPO customers [2].\n* Undelivered orders related to commercial printing were $173 million and $111 million [3].\n* GPO's procurement includes purchase orders and contractual obligations to acquire goods and services from the private sector and other sources, which are scheduled for delivery or performance [3].\n* Print procurement includes specification writing, bid and solicitation management, and contract awarding [4].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": false
+    },
+    {
+     "id": "gpo-11",
+     "question": "How many titles did GPO catalog in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       23
+      ],
+      [
+       19
+      ],
+      [
+       8
+      ],
+      [
+       4
+      ],
+      [
+       5
+      ]
+     ],
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 1.0,
+     "answer": "34,367 titles, which was cataloged by staff by the end of FY 2018 [2][5].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "gpo-10",
@@ -271,312 +328,31 @@
       [
        26
       ]
-     ]
+     ],
+     "answer": "The document does not contain this information.",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     }
    ],
    "summary": {
-    "questions": 10,
-    "hit@k": 0.5555555555555556,
-    "mrr": 0.48148148148148145,
-    "context_recall": 0.7777777777777778,
-    "avg_latency_s": 0.04
+    "questions": 11,
+    "hit@k": 0.9,
+    "mrr": 0.6833333333333333,
+    "context_recall": 0.9,
+    "avg_latency_s": 0.03,
+    "accuracy": 0.9090909090909091
    }
   },
-  "advanced-no-rewrite": {
+  "advanced": {
    "rows": [
     {
      "id": "gpo-1",
      "question": "How many depository libraries did GPO staff visit in FY 2018?",
-     "source": "brief",
-     "answerable": true,
-     "latency": 19.46,
-     "context_pages": [
-      [
-       21
-      ],
-      [
-       5
-      ],
-      [
-       19,
-       20
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "gpo-2",
-     "question": "What new digital system replaced FDsys, and when was it fully deployed?",
-     "source": "brief",
-     "answerable": true,
-     "latency": 0.82,
-     "context_pages": [
-      [
-       9,
-       10
-      ],
-      [
-       39
-      ],
-      [
-       22
-      ],
-      [
-       4
-      ],
-      [
-       6,
-       7,
-       8
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "gpo-3",
-     "question": "How much did GPO procure in printing and information products in FY 2018 on behalf of federal agencies?",
      "source": "brief",
      "answerable": true,
      "latency": 0.51,
      "context_pages": [
       [
-       5,
-       6
-      ],
-      [
-       14
-      ],
-      [
-       25,
-       26
-      ],
-      [
-       11,
-       12
-      ],
-      [
-       74,
-       75
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "gpo-4",
-     "question": "How many copies of how many titles did GPO distribute to depository libraries in FY 2018?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 0.98,
-     "context_pages": [
-      [
-       5
-      ],
-      [
-       19,
-       20
-      ],
-      [
-       14,
-       15
-      ],
-      [
-       6,
-       7,
-       8
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "gpo-5",
-     "question": "How many libraries participate in the Federal Depository Library Program?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 0.98,
-     "context_pages": [
-      [
-       39
-      ],
-      [
-       6,
-       7,
-       8
-      ],
-      [
-       5
-      ],
-      [
-       20,
-       21
-      ],
-      [
-       19,
-       20
-      ]
-     ],
-     "hit": true,
-     "rr": 0.5,
-     "context_recall": 1.0
-    },
-    {
-     "id": "gpo-6",
-     "question": "What were GPO's total revenues in FY 2018?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 1.23,
-     "context_pages": [
-      [
-       25,
-       26
-      ],
-      [
-       26
-      ],
-      [
-       6
-      ],
-      [
-       23,
-       24
-      ],
-      [
-       14
-      ]
-     ],
-     "hit": true,
-     "rr": 0.2,
-     "context_recall": 1.0
-    },
-    {
-     "id": "gpo-7",
-     "question": "How many passports did GPO produce in FY 2018?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 5.82,
-     "context_pages": [
-      [
-       18
-      ],
-      [
-       5,
-       6
-      ],
-      [
-       14,
-       15
-      ],
-      [
-       47
-      ],
-      [
-       41
-      ]
-     ],
-     "hit": true,
-     "rr": 0.3333333333333333,
-     "context_recall": 1.0
-    },
-    {
-     "id": "gpo-8",
-     "question": "Who signed the annual report as Acting Deputy Director?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 58.96,
-     "context_pages": [
-      [
-       3
-      ],
-      [
-       4
-      ],
-      [
-       8,
-       9
-      ],
-      [
-       10
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "gpo-9",
-     "question": "procurement orders vendors",
-     "source": "keywords",
-     "answerable": true,
-     "latency": 16.56,
-     "context_pages": [
-      [
-       45,
-       46
-      ],
-      [
-       5,
-       6
-      ],
-      [
-       38
-      ],
-      [
-       66
-      ],
-      [
-       74,
-       75
-      ]
-     ],
-     "hit": true,
-     "rr": 0.5,
-     "context_recall": 1.0
-    },
-    {
-     "id": "gpo-10",
-     "question": "What was GPO's budget request for fiscal year 2025?",
-     "source": "unanswerable",
-     "answerable": false,
-     "latency": 3.29,
-     "context_pages": [
-      [
-       5,
-       6
-      ],
-      [
-       49
-      ],
-      [
-       77
-      ]
-     ]
-    }
-   ],
-   "summary": {
-    "questions": 10,
-    "hit@k": 1,
-    "mrr": 0.725925925925926,
-    "context_recall": 1.0,
-    "avg_latency_s": 10.86
-   }
-  },
-  "advanced-no-rewrite-no-rerank": {
-   "rows": [
-    {
-     "id": "gpo-1",
-     "question": "How many depository libraries did GPO staff visit in FY 2018?",
-     "source": "brief",
-     "answerable": true,
-     "latency": 0.16,
-     "context_pages": [
-      [
        21
       ],
       [
@@ -589,40 +365,50 @@
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "In FY 2018, GPO staff visited 166 depository libraries in 25 states [1][2].",
+     "model": "gemini-flash-latest",
+     "correct": true
     },
     {
      "id": "gpo-2",
      "question": "What new digital system replaced FDsys, and when was it fully deployed?",
      "source": "brief",
      "answerable": true,
-     "latency": 0.09,
+     "latency": 0.74,
      "context_pages": [
-      [
-       39
-      ],
       [
        9,
        10
       ],
       [
+       39
+      ],
+      [
        22
       ],
       [
-       16,
-       17
+       4
+      ],
+      [
+       6,
+       7,
+       8
       ]
      ],
      "hit": true,
-     "rr": 0.5,
-     "context_recall": 1.0
+     "rr": 1.0,
+     "context_recall": 1.0,
+     "answer": "govinfo is the new digital system that replaced FDsys, with its full-scale deployment occurring during FY 2018 [4]. The website was moved out of beta in December 2017 and was scheduled to completely retire and replace FDsys in December 2018 [3][4].",
+     "model": "gemini-3-flash-preview",
+     "correct": true
     },
     {
      "id": "gpo-3",
      "question": "How much did GPO procure in printing and information products in FY 2018 on behalf of federal agencies?",
      "source": "brief",
      "answerable": true,
-     "latency": 0.08,
+     "latency": 0.53,
      "context_pages": [
       [
        5,
@@ -630,311 +416,31 @@
       ],
       [
        14
-      ],
-      [
-       61
-      ],
-      [
-       66
       ],
       [
        17,
        18
       ],
       [
+       23
+      ],
+      [
        24
       ]
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "* More than $375 million [1]\n* Approximately $375.7 million [3] (valued at approximately $375.7 million for work representing 84,111 orders [3])",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "gpo-4",
      "question": "How many copies of how many titles did GPO distribute to depository libraries in FY 2018?",
      "source": "extra",
      "answerable": true,
-     "latency": 0.1,
-     "context_pages": [
-      [
-       5
-      ],
-      [
-       19,
-       20
-      ],
-      [
-       14,
-       15
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "gpo-5",
-     "question": "How many libraries participate in the Federal Depository Library Program?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 0.15,
-     "context_pages": [
-      [
-       6,
-       7,
-       8
-      ],
-      [
-       39
-      ],
-      [
-       19,
-       20
-      ],
-      [
-       5
-      ],
-      [
-       21
-      ],
-      [
-       20
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "gpo-6",
-     "question": "What were GPO's total revenues in FY 2018?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 0.08,
-     "context_pages": [
-      [
-       23,
-       24
-      ],
-      [
-       26
-      ],
-      [
-       6
-      ],
-      [
-       25,
-       26
-      ],
-      [
-       81,
-       82
-      ]
-     ],
-     "hit": false,
-     "rr": 0.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "gpo-7",
-     "question": "How many passports did GPO produce in FY 2018?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 0.51,
-     "context_pages": [
-      [
-       18
-      ],
-      [
-       4
-      ],
-      [
-       5,
-       6
-      ],
-      [
-       47
-      ]
-     ],
-     "hit": false,
-     "rr": 0.0,
-     "context_recall": 0.0
-    },
-    {
-     "id": "gpo-8",
-     "question": "Who signed the annual report as Acting Deputy Director?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 1.8,
-     "context_pages": [
-      [
-       4
-      ],
-      [
-       5
-      ],
-      [
-       3
-      ]
-     ],
-     "hit": true,
-     "rr": 0.3333333333333333,
-     "context_recall": 1.0
-    },
-    {
-     "id": "gpo-9",
-     "question": "procurement orders vendors",
-     "source": "keywords",
-     "answerable": true,
-     "latency": 0.1,
-     "context_pages": [
-      [
-       45,
-       46
-      ],
-      [
-       38
-      ],
-      [
-       5,
-       6
-      ],
-      [
-       74,
-       75
-      ],
-      [
-       66
-      ]
-     ],
-     "hit": true,
-     "rr": 0.3333333333333333,
-     "context_recall": 1.0
-    },
-    {
-     "id": "gpo-10",
-     "question": "What was GPO's budget request for fiscal year 2025?",
-     "source": "unanswerable",
-     "answerable": false,
-     "latency": 0.08,
-     "context_pages": [
-      [
-       5,
-       6
-      ],
-      [
-       49
-      ],
-      [
-       4
-      ],
-      [
-       73
-      ],
-      [
-       12
-      ]
-     ]
-    }
-   ],
-   "summary": {
-    "questions": 10,
-    "hit@k": 0.7777777777777778,
-    "mrr": 0.5740740740740741,
-    "context_recall": 0.8888888888888888,
-    "avg_latency_s": 0.32
-   }
-  },
-  "advanced-no-rewrite-no-hybrid": {
-   "rows": [
-    {
-     "id": "gpo-1",
-     "question": "How many depository libraries did GPO staff visit in FY 2018?",
-     "source": "brief",
-     "answerable": true,
-     "latency": 5.46,
-     "context_pages": [
-      [
-       21
-      ],
-      [
-       5
-      ],
-      [
-       19,
-       20
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "gpo-2",
-     "question": "What new digital system replaced FDsys, and when was it fully deployed?",
-     "source": "brief",
-     "answerable": true,
-     "latency": 2.7,
-     "context_pages": [
-      [
-       9,
-       10
-      ],
-      [
-       39
-      ],
-      [
-       22
-      ],
-      [
-       4
-      ],
-      [
-       6,
-       7,
-       8
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "gpo-3",
-     "question": "How much did GPO procure in printing and information products in FY 2018 on behalf of federal agencies?",
-     "source": "brief",
-     "answerable": true,
-     "latency": 2.46,
-     "context_pages": [
-      [
-       5,
-       6
-      ],
-      [
-       14
-      ],
-      [
-       25,
-       26
-      ],
-      [
-       11,
-       12
-      ],
-      [
-       73
-      ]
-     ],
-     "hit": true,
-     "rr": 1.0,
-     "context_recall": 1.0
-    },
-    {
-     "id": "gpo-4",
-     "question": "How many copies of how many titles did GPO distribute to depository libraries in FY 2018?",
-     "source": "extra",
-     "answerable": true,
-     "latency": 3.45,
+     "latency": 1.03,
      "context_pages": [
       [
        5
@@ -955,14 +461,17 @@
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "In FY 2018, GPO (via the FDLP) distributed 802,834 copies (also described as \"more than 802,834 tangible copies\") of 4,211 titles to depository libraries nationwide [1][2][3].",
+     "model": "gemini-3.7-flash",
+     "correct": true
     },
     {
      "id": "gpo-5",
      "question": "How many libraries participate in the Federal Depository Library Program?",
      "source": "extra",
      "answerable": true,
-     "latency": 4.62,
+     "latency": 1.12,
      "context_pages": [
       [
        39
@@ -985,15 +494,18 @@
       ]
      ],
      "hit": true,
-     "rr": 0.5,
-     "context_recall": 1.0
+     "rr": 1.0,
+     "context_recall": 1.0,
+     "answer": "There are 1,133 libraries participating in the Federal Depository Library Program [1][2]. These include designated Federal depository libraries\u2014comprising Federal, academic, public, law, and other libraries\u2014throughout the United States and its territories [1][2].",
+     "model": "gemini-3.7-flash",
+     "correct": true
     },
     {
      "id": "gpo-6",
      "question": "What were GPO's total revenues in FY 2018?",
      "source": "extra",
      "answerable": true,
-     "latency": 2.05,
+     "latency": 5.97,
      "context_pages": [
       [
        25,
@@ -1014,15 +526,18 @@
       ]
      ],
      "hit": true,
-     "rr": 0.2,
-     "context_recall": 1.0
+     "rr": 1.0,
+     "context_recall": 1.0,
+     "answer": "* $874.5 million, with revenues specifically detailed as $874,466,000 [1][5].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "gpo-7",
      "question": "How many passports did GPO produce in FY 2018?",
      "source": "extra",
      "answerable": true,
-     "latency": 3.0,
+     "latency": 0.61,
      "context_pages": [
       [
        18
@@ -1043,15 +558,18 @@
       ]
      ],
      "hit": true,
-     "rr": 0.3333333333333333,
-     "context_recall": 1.0
+     "rr": 1.0,
+     "context_recall": 1.0,
+     "answer": "* 16 million passports (referred to generally as produced for the State Department) [1][2]\n* 15,901,600 (listed specifically under \"Passports produced\") [3]\n* 16.1 million passports (noted as production volume in fiscal 2018) [5]",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "gpo-8",
      "question": "Who signed the annual report as Acting Deputy Director?",
      "source": "extra",
      "answerable": true,
-     "latency": 1.37,
+     "latency": 0.44,
      "context_pages": [
       [
        3
@@ -1063,20 +581,23 @@
        10
       ],
       [
-       9,
-       10
+       8,
+       9
       ]
      ],
      "hit": true,
      "rr": 1.0,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "John W. Crawford signed the annual report as Acting Deputy Director [1].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "gpo-9",
      "question": "procurement orders vendors",
      "source": "keywords",
      "answerable": true,
-     "latency": 1.98,
+     "latency": 0.68,
      "context_pages": [
       [
        45,
@@ -1099,19 +620,44 @@
      ],
      "hit": true,
      "rr": 0.5,
-     "context_recall": 1.0
+     "context_recall": 1.0,
+     "answer": "In FY 2018, GPO procured more than $375 million worth of printing and other information products through more than 84,000 specific orders fulfilled by thousands of private-sector vendors [2].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
+    },
+    {
+     "id": "gpo-11",
+     "question": "How many titles did GPO catalog in FY 2018?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.92,
+     "context_pages": [
+      [
+       5
+      ],
+      [
+       19,
+       20
+      ],
+      [
+       14,
+       15
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0,
+     "answer": "34,367 titles were cataloged by GPO in FY 2018 [1][3].",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     },
     {
      "id": "gpo-10",
      "question": "What was GPO's budget request for fiscal year 2025?",
      "source": "unanswerable",
      "answerable": false,
-     "latency": 0.86,
+     "latency": 1.82,
      "context_pages": [
-      [
-       5,
-       6
-      ],
       [
        49
       ],
@@ -1122,16 +668,21 @@
        77,
        78
       ]
-     ]
+     ],
+     "answer": "The document does not contain this information. [1][2][3]",
+     "model": "gemini-3.5-flash-lite",
+     "correct": true
     }
    ],
    "summary": {
-    "questions": 10,
+    "questions": 11,
     "hit@k": 1,
-    "mrr": 0.725925925925926,
+    "mrr": 0.95,
     "context_recall": 1.0,
-    "avg_latency_s": 2.79
+    "avg_latency_s": 1.31,
+    "accuracy": 1
    }
   }
- }
+ },
+ "complete": true
 }

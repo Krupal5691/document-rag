@@ -1,0 +1,26 @@
+{
+ "elements": [
+  {
+   "type": "diagram",
+   "title": "Product lifecycle diagram",
+   "content": "A circular diagram illustrating five stages of the product lifecycle: DESIGN AND SOURCE, MAKE, PACKAGE AND SHIP, USE, RECOVER.",
+   "footnotes": []
+  },
+  {
+   "type": "callout",
+   "title": "iMac recycled content statement",
+   "content": "iMac contains more than 15 percent recycled content.",
+   "footnotes": [
+    "1"
+   ]
+  },
+  {
+   "type": "callout",
+   "title": "Recycled materials breakdown",
+   "content": "Aluminum: We use 100 percent recycled aluminum in the stand. Copper: We use 100 percent recycled copper in multiple printed circuit boards. We also use 100 percent recycled copper in multiple thermal module components. Gold: We use 100 percent recycled gold in the plating of multiple printed circuit boards. Plastic: We use at least 50 percent recycled plastic in 13 components. Rare earth elements: We use 100 percent recycled rare earth elements in all magnets, representing 99 percent of the total rare earth elements in the device. Tin: We use 100 percent recycled tin in the solder of multiple printed circuit boards.",
+   "footnotes": [
+    "14"
+   ]
+  }
+ ]
+}

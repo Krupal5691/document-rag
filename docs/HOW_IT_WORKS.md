@@ -47,7 +47,7 @@ This project solves one failure mode per document, then compares the result agai
 ## Retrieval (advanced)
 
 1. **Query understanding** (`query.py`): rules detect region names, abbreviations (SAR → South Asia)
-   and chapter references; a small LLM (`gemini-2.5-flash-lite`) rewrites the question into a
+   and chapter references; a small LLM (`gemini-3.5-flash-lite`) rewrites the question into a
    keyword-rich search query and expands keyword-only questions. Filter values are validated against
    real values in the index.
 2. **Hybrid search**: dense and BM25 searches run in Qdrant (with metadata filters) and are merged
@@ -69,3 +69,15 @@ units and periods, cite passages as [n], keep regions/years apart, and reply
 
 Page text read top-to-bottom, left-to-right → 500-character chunks (50 overlap) → dense search
 top-5 → the same answer prompt. Same LLM, same embeddings: differences come from retrieval.
+
+## Production hardening (lessons from running it for real)
+
+| Problem we hit | What we changed | Interview takeaway |
+|---|---|---|
+| Free tier: ~1,000 embedding requests/day, one per chunk; this corpus has ~7,000 chunks | Local embeddings (bge-small via fastembed) by default; Gemini only for generation and vision | Quotas and cost per chunk shape the architecture as much as accuracy does |
+| Free tier: ~20 generation requests per model per day | Model rotation on quota/overload, daily-quota errors fail fast, answers / query plans / vision cached on disk | Design for rate limits: cache, degrade gracefully, never retry for hours |
+| A model was retired for new users mid-project | Configurable models + fallback list | Never hard-code one model name |
+| Wi-Fi dropped during a long ingest | Retry on network errors, `ingest --skip-existing` to resume | Long batch jobs must be resumable |
+| The query LLM guessed a wrong chapter filter ("FINANCIAL STATEMENTS") and hid the answer | LLM chapter filters accepted only when the question names that chapter; filters fall back when too strict | Hard filters are high-risk: a wrong filter is worse than no filter |
+| Evaluation pages were too narrow (the revenue figure is on 6 pages) | Audited every expected page against the PDF text | Evaluation data needs the same care as code |
+| Retrieved documents could contain instructions | Prompt treats passages as data, not instructions | Prompt-injection through documents is a real attack path |

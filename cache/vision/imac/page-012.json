@@ -1,0 +1,12 @@
+{
+ "elements": [
+  {
+   "type": "table",
+   "title": "Power consumption for iMac",
+   "content": "Off - 100V: 0.27W; 115V: 0.27W; 230V: 0.29W; Sleep - 100V: 0.56W; 115V: 0.57W; 230V: 0.59W; Idle—Display On - 100V: 20.5W; 115V: 20.6W; 230V: 20.9W; Power adapter, no load - 100V: 0.10W; 115V: 0.10W; 230V: 0.12W; Power adapter efficiency - 100V: 91.1%; 115V: 91.5%; 230V: 91.9%",
+   "footnotes": [
+    "18"
+   ]
+  }
+ ]
+}

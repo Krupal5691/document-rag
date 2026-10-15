@@ -66,3 +66,11 @@ def test_imac_footnote_markers_and_endnotes():
     assert "18" in energy.footnote_refs
     assert parsed.footnotes["18"].startswith("Energy consumption")
     assert not any("CO[^2]" in e.text for e in parsed.elements)        # subscript is not a footnote
+
+
+def test_parent_sections_carry_footnotes():
+    from rag_core.chunking import structured_chunks
+    cfg = documents.get("imac")
+    _, parents = structured_chunks(cfg, parse_pdf(cfg.path, "imac"))
+    energy = next(p for p in parents.values() if "58 percent less energy" in p["text"])
+    assert "143W Power Adapter" in energy["text"]          # footnote 18 travels with the section

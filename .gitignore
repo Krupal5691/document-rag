@@ -11,3 +11,4 @@ __pycache__/
 
 # regenerable LLM response cache (vision transcriptions in cache/vision ARE committed)
 cache/llm/
+logs/

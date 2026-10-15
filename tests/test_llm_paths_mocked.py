@@ -14,7 +14,7 @@ def fake_gemini(monkeypatch, tmp_path):
     monkeypatch.setattr(llm, "has_key", lambda: True)
     calls = {"generate": [], "json": [], "image": 0}
 
-    def fake_generate(prompt, system, model=None, temperature=0.0):
+    def fake_generate(prompt, system, model=None, temperature=0.0, cache=None):
         calls["generate"].append(prompt)
         return "GPO staff visited 166 depository libraries in 25 states [1]."
 
@@ -85,3 +85,21 @@ def test_evaluation_with_answers(fake_gemini, monkeypatch, tmp_path):
     s = res["variants"]["advanced"]["summary"]
     assert s["hit@k"] == 1 and s["accuracy"] == 0.5 and s["faithfulness"] == 1   # fake never refuses
     assert (tmp_path / "results" / "gpo.md").exists()
+
+
+def test_fallback_rotates_past_exhausted_models(monkeypatch):
+    monkeypatch.setattr(config, "FALLBACK_MODELS", ["b", "c"])
+    monkeypatch.setattr(llm, "EXHAUSTED", set())
+    tried = []
+
+    def call(m):
+        tried.append(m)
+        if m in ("a", "b"):
+            raise llm.QuotaExhaustedError(f"{m} out of quota")
+        return "ok"
+
+    assert llm._with_fallback("a", call) == "ok" and llm.LAST_MODEL == "c"
+    assert llm._with_fallback("a", call) == "ok" and tried == ["a", "b", "c", "c"]   # exhausted models skipped
+    monkeypatch.setattr(config, "FALLBACK_MODELS", [])
+    with pytest.raises(llm.QuotaExhaustedError):
+        llm._with_fallback("a", call)

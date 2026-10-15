@@ -62,7 +62,7 @@ class ParsedDocument:
         return {**asdict(self), "elements": [e.to_dict() for e in self.elements]}
 
     @classmethod
-    def from_dict(cls, d: dict) -> "ParsedDocument":
+    def from_dict(cls, d: dict) -> ParsedDocument:
         return cls(**{**d, "elements": [Element(**e) for e in d["elements"]]})
 
 
@@ -189,9 +189,9 @@ class StructureBuilder:
             page = self.doc[page_idx]
             chapter = chapters.get(page_no)
 
-            def path() -> list[str]:
-                p = [t for _, t in stack]
-                return ([chapter] if chapter and (not p or p[0] != chapter) else []) + p
+            def path() -> list[str]:  # noqa: B023 - always called within the current iteration
+                p = [t for _, t in stack]  # noqa: B023
+                return ([chapter] if chapter and (not p or p[0] != chapter) else []) + p  # noqa: B023
 
             i = 0
             pending_prefix = ""
@@ -213,7 +213,7 @@ class StructureBuilder:
                 box = BOX_RE.match(text)
                 if box and len(text.split()) <= 25:
                     lvl = (self._level(b) if self._is_heading(b) else 2)
-                    stack = [(l, t) for l, t in stack if l < lvl] + [(lvl, text)]
+                    stack = [(lv, t) for lv, t in stack if lv < lvl] + [(lvl, text)]
                     elements.append(Element("heading", text, page_no, path(), level=lvl, label=f"Box {box.group(2)}"))
                     i += 1
                     continue
@@ -225,7 +225,7 @@ class StructureBuilder:
                 if self._is_heading(b):
                     lvl = self._level(b)
                     text = re.sub(r"\[\^\d+\]", "", text).strip()
-                    if any(l == lvl and t == text for l, t in stack):
+                    if any(lv == lvl and t == text for lv, t in stack):
                         i += 1                         # running title repeated on every page of a box
                         continue
                     prev = elements[-1] if elements else None
@@ -241,7 +241,7 @@ class StructureBuilder:
                         continue
                     last_heading = b
                     in_endnotes = bool(ENDNOTES_RE.match(text))
-                    stack = [(l, t) for l, t in stack if l < lvl] + [(lvl, text)]
+                    stack = [(lv, t) for lv, t in stack if lv < lvl] + [(lvl, text)]
                     elements.append(Element("heading", text, page_no, path(), level=lvl))
                     i += 1
                     continue

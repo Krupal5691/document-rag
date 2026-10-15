@@ -1,22 +1,161 @@
 [
-  {"id": "imac-1", "source": "brief", "question": "How much less energy does iMac use compared to the ENERGY STAR requirement?",
-   "facts": [["58"]], "pages": [7]},
-  {"id": "imac-2", "source": "brief", "question": "What is the total carbon footprint of the iMac, and how much of that comes from product use versus manufacturing?",
-   "facts": [["346"], ["45"], ["50"]], "pages": [2, 10]},
-  {"id": "imac-3", "source": "brief", "question": "What material is the iMac stand made from, and what percentage of it is recycled?",
-   "facts": [["aluminum", "aluminium"], ["100"]], "pages": [1, 4]},
-  {"id": "imac-4", "source": "extra", "question": "What is the power consumption of iMac in sleep mode at 115V?",
-   "facts": [["0.57"]], "pages": [12]},
-  {"id": "imac-5", "source": "extra", "question": "What share of the iMac packaging is fiber-based?",
-   "facts": [["100"]], "pages": [1, 6]},
-  {"id": "imac-6", "source": "extra", "question": "How much recycled content does iMac contain overall?",
-   "facts": [["15"]], "pages": [1, 4]},
-  {"id": "imac-7", "source": "extra", "question": "What share of the carbon footprint comes from transportation?",
-   "facts": [["5"]], "pages": [2, 10]},
-  {"id": "imac-8", "source": "extra", "question": "What recycled gold does iMac use and where?",
-   "facts": [["100"], ["gold"], ["circuit"]], "pages": [4]},
-  {"id": "imac-9", "source": "extra", "question": "What carbon footprint does the iMac four ports 512GB configuration have?",
-   "facts": [["391"]], "pages": [10]},
-  {"id": "imac-10", "source": "unanswerable", "question": "What is the retail price of the iMac?",
-   "answerable": false}
+ {
+  "id": "imac-1",
+  "source": "brief",
+  "question": "How much less energy does iMac use compared to the ENERGY STAR requirement?",
+  "facts": [
+   [
+    "58"
+   ]
+  ],
+  "pages": [
+   7
+  ]
+ },
+ {
+  "id": "imac-2",
+  "source": "brief",
+  "question": "What is the total carbon footprint of the iMac, and how much of that comes from product use versus manufacturing?",
+  "facts": [
+   [
+    "346"
+   ],
+   [
+    "45"
+   ],
+   [
+    "50"
+   ]
+  ],
+  "pages": [
+   2,
+   10
+  ]
+ },
+ {
+  "id": "imac-3",
+  "source": "brief",
+  "question": "What material is the iMac stand made from, and what percentage of it is recycled?",
+  "facts": [
+   [
+    "aluminum",
+    "aluminium"
+   ],
+   [
+    "100"
+   ]
+  ],
+  "pages": [
+   1,
+   4
+  ]
+ },
+ {
+  "id": "imac-4",
+  "source": "extra",
+  "question": "What is the power consumption of iMac in sleep mode at 115V?",
+  "facts": [
+   [
+    "0.57"
+   ]
+  ],
+  "pages": [
+   12
+  ]
+ },
+ {
+  "id": "imac-5",
+  "source": "extra",
+  "question": "What share of the iMac packaging is fiber-based?",
+  "facts": [
+   [
+    "100"
+   ]
+  ],
+  "pages": [
+   1,
+   6
+  ]
+ },
+ {
+  "id": "imac-6",
+  "source": "extra",
+  "question": "How much recycled content does iMac contain overall?",
+  "facts": [
+   [
+    "15"
+   ]
+  ],
+  "pages": [
+   1,
+   4
+  ]
+ },
+ {
+  "id": "imac-7",
+  "source": "extra",
+  "question": "What share of the carbon footprint comes from transportation?",
+  "facts": [
+   [
+    "5"
+   ]
+  ],
+  "pages": [
+   2,
+   10
+  ]
+ },
+ {
+  "id": "imac-8",
+  "source": "extra",
+  "question": "What recycled gold does iMac use and where?",
+  "facts": [
+   [
+    "100"
+   ],
+   [
+    "gold"
+   ],
+   [
+    "circuit"
+   ]
+  ],
+  "pages": [
+   4
+  ]
+ },
+ {
+  "id": "imac-9",
+  "source": "extra",
+  "question": "What carbon footprint does the iMac four ports 512GB configuration have?",
+  "facts": [
+   [
+    "391"
+   ]
+  ],
+  "pages": [
+   10
+  ]
+ },
+ {
+  "id": "imac-11",
+  "source": "footnote",
+  "question": "Which power adapter was iMac tested with for its energy efficiency figures?",
+  "facts": [
+   [
+    "143W",
+    "143 W"
+   ]
+  ],
+  "pages": [
+   7,
+   12
+  ]
+ },
+ {
+  "id": "imac-10",
+  "source": "unanswerable",
+  "question": "What is the retail price of the iMac?",
+  "answerable": false
+ }
 ]

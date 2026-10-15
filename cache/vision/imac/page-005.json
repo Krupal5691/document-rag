@@ -1,0 +1,34 @@
+{
+ "elements": [
+  {
+   "type": "diagram",
+   "title": "Product lifecycle stage: Make",
+   "content": "A circular product lifecycle diagram highlighting the 'MAKE' stage with a green solar panel icon, alongside four other stages: 'DESIGN AND SOURCE', 'PACKAGE AND SHIP', 'USE', and 'RECOVER'.",
+   "footnotes": []
+  },
+  {
+   "type": "callout",
+   "title": "Smarter chemicals",
+   "content": "All established iMac final assembly supplier sites use safer cleaners and degreasers in their manufacturing processes, as determined by methodologies like the GreenScreen® assessment.",
+   "footnotes": [
+    "15"
+   ]
+  },
+  {
+   "type": "callout",
+   "title": "Zero Waste to Landfill",
+   "content": "No established iMac final assembly supplier sites generate any waste sent to landfill.",
+   "footnotes": [
+    "16"
+   ]
+  },
+  {
+   "type": "callout",
+   "title": "Supplier energy use",
+   "content": "Over 20 percent of manufacturing electricity is sourced from supplier low-carbon energy projects, supported by Apple's Supplier Clean Energy Program.",
+   "footnotes": [
+    "2"
+   ]
+  }
+ ]
+}

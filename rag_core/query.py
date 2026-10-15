@@ -69,6 +69,14 @@ def rule_filters(question: str, cfg: DocConfig, chapters: list[str]) -> dict:
     return filters
 
 
+def _words(text: str) -> set[str]:
+    return {w for w in re.findall(r"[a-z]{4,}", text.lower()) if w not in STOPWORDS and w != "chapter"}
+
+
+def _mentions(question: str, title: str) -> bool:
+    return bool(_words(question) & _words(title))
+
+
 def keyword_query(question: str) -> str:
     words = re.findall(r"[A-Za-z0-9$%.\-/]+", question)
     kept = [w for w in words if w.lower() not in STOPWORDS]
@@ -107,8 +115,14 @@ def plan(question: str, cfg: DocConfig, chapters: list[str], use_llm: bool = Tru
     result.source = "llm+rules"
     result.search_query = out.get("search_query") or result.search_query
     result.keywords = out.get("keywords") or result.keywords
-    if out.get("chapter") in chapters and "chapter" not in filters:
-        filters["chapter"] = out["chapter"]
+    llm_chapter = out.get("chapter")
+    if llm_chapter in chapters and "chapter" not in filters:
+        # A wrong chapter filter hides the answer completely, so only accept the LLM's choice when the
+        # question itself names that chapter (shares a meaningful word with its title).
+        if _mentions(question, llm_chapter):
+            filters["chapter"] = llm_chapter
+        else:
+            result.notes.append(f"ignored LLM chapter guess '{llm_chapter}' (not named in the question)")
     if out.get("region") in regions and "region" not in filters:
         filters["region"] = out["region"]
     result.filters = filters

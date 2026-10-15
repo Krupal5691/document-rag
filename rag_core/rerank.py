@@ -24,7 +24,7 @@ def rerank(query: str, hits: list[Hit], top_k: int) -> list[Hit]:
     if not hits:
         return []
     scores = list(_model().rerank(query, [h.metadata.get("embed_text", h.text) for h in hits]))
-    for h, s in zip(hits, scores):
+    for h, s in zip(hits, scores, strict=True):
         h.scores["rerank"] = float(s)
     ranked = sorted(hits, key=lambda h: h.scores["rerank"], reverse=True)[:top_k]
     for i, h in enumerate(ranked):

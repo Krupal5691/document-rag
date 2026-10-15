@@ -1,0 +1,16 @@
+{
+ "elements": [
+  {
+   "type": "chart",
+   "title": "Progress toward carbon neutral",
+   "content": "A stacked bar chart showing baseline emissions, emissions reductions, and total iMac emissions for iMac (two ports) with 256GB: 1. Baseline emissions: 445 kg total CO2e, split into Materials and process emissions, Electricity for manufacturing, Electricity for product use, and Transportation. 2. Emissions reductions: -99 kg CO2e reduction total, achieved through Recycled and low-carbon materials, Low-carbon electricity, and Non-air shipping. 3. iMac emissions: 346 kg total CO2e, consisting of Materials and process emissions, Electricity for manufacturing, Electricity for product use, Transportation, and Renewable energy emissions.",
+   "footnotes": [
+    "7",
+    "8",
+    "9",
+    "10",
+    "11"
+   ]
+  }
+ ]
+}

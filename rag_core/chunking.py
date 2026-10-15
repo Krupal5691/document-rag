@@ -127,6 +127,11 @@ def structured_chunks(cfg: DocConfig, parsed: ParsedDocument) -> tuple[list[Chun
         first = elements[0]
         pid = _id(cfg.id, "parent", len(parents), first.page, text[:50])
         pages = sorted({e.page for e in elements})
+        # The parent is what the LLM reads, so it must carry the footnotes its text points to as well -
+        # otherwise small-to-big expansion would drop facts that only live in a footnote.
+        notes = list(dict.fromkeys(n for e in elements for n in _footnotes(e.text, e.page, parsed)))
+        if notes and kind != "table":
+            text += "\n\nFootnotes: " + " ".join(notes)
         parents[pid] = {
             "id": pid, "text": text, "kind": kind, "label": label, "pages": pages, "page": pages[0],
             "section_path": first.section_path,
