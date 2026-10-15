@@ -1,0 +1,1091 @@
+{
+ "doc": "worldbank",
+ "date": "2026-10-15T16:18:58",
+ "embedder": "local-bge-small-en-v1.5",
+ "answers": false,
+ "variants": {
+  "naive": {
+   "rows": [
+    {
+     "id": "wb-1",
+     "question": "What is the growth outlook for South Asia in this report?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.02,
+     "context_pages": [
+      [
+       96
+      ],
+      [
+       98
+      ],
+      [
+       97
+      ],
+      [
+       13
+      ],
+      [
+       12
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-2",
+     "question": "What does Chapter 3 say about sovereign debt in developing economies?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       107
+      ],
+      [
+       134
+      ],
+      [
+       7
+      ],
+      [
+       138
+      ],
+      [
+       128
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-3",
+     "question": "According to the executive summary, what are the main risks to the global outlook?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       23
+      ],
+      [
+       54
+      ],
+      [
+       196
+      ],
+      [
+       29
+      ],
+      [
+       3
+      ]
+     ],
+     "hit": false,
+     "rr": 0.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-4",
+     "question": "What is global growth projected to be in 2026?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       40
+      ],
+      [
+       5
+      ],
+      [
+       25
+      ],
+      [
+       3
+      ],
+      [
+       187
+      ]
+     ],
+     "hit": true,
+     "rr": 0.3333333333333333,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-5",
+     "question": "What is India's growth forecast for fiscal year 2026/27?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       5
+      ],
+      [
+       96
+      ],
+      [
+       40
+      ],
+      [
+       97
+      ],
+      [
+       98
+      ]
+     ],
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-6",
+     "question": "What growth is projected for East Asia and Pacific in 2026?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       81
+      ],
+      [
+       5
+      ],
+      [
+       40
+      ],
+      [
+       83
+      ],
+      [
+       51
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-7",
+     "question": "What is the 2026 growth forecast for Sub-Saharan Africa?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       102
+      ],
+      [
+       101
+      ],
+      [
+       78
+      ],
+      [
+       5
+      ],
+      [
+       99
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 0.0
+    },
+    {
+     "id": "wb-8",
+     "question": "By how much are sovereign spreads associated with the rise in EMDE debt since 2010?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       107
+      ],
+      [
+       120
+      ],
+      [
+       112
+      ],
+      [
+       109
+      ],
+      [
+       110
+      ]
+     ],
+     "hit": true,
+     "rr": 0.25,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-9",
+     "question": "SAR growth 2026",
+     "source": "keywords",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       96
+      ],
+      [
+       97
+      ],
+      [
+       98
+      ],
+      [
+       40
+      ],
+      [
+       96
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-10",
+     "question": "What is the population of Tokyo?",
+     "source": "unanswerable",
+     "answerable": false,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       187
+      ],
+      [
+       26
+      ],
+      [
+       78
+      ],
+      [
+       77
+      ],
+      [
+       187
+      ]
+     ]
+    }
+   ],
+   "summary": {
+    "questions": 10,
+    "hit@k": 0.8888888888888888,
+    "mrr": 0.6759259259259259,
+    "context_recall": 0.8888888888888888,
+    "avg_latency_s": 0.01
+   }
+  },
+  "advanced-no-rewrite": {
+   "rows": [
+    {
+     "id": "wb-1",
+     "question": "What is the growth outlook for South Asia in this report?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 3.84,
+     "context_pages": [
+      [
+       96
+      ],
+      [
+       97
+      ],
+      [
+       98
+      ],
+      [
+       98
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-2",
+     "question": "What does Chapter 3 say about sovereign debt in developing economies?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 1.08,
+     "context_pages": [
+      [
+       109
+      ],
+      [
+       110,
+       111
+      ],
+      [
+       109
+      ],
+      [
+       112,
+       113
+      ],
+      [
+       110
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-3",
+     "question": "According to the executive summary, what are the main risks to the global outlook?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 1.07,
+     "context_pages": [
+      [
+       19
+      ],
+      [
+       19,
+       20
+      ],
+      [
+       20
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-4",
+     "question": "What is global growth projected to be in 2026?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.8,
+     "context_pages": [
+      [
+       19
+      ],
+      [
+       40
+      ],
+      [
+       25
+      ],
+      [
+       36
+      ],
+      [
+       27
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-5",
+     "question": "What is India's growth forecast for fiscal year 2026/27?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 2.84,
+     "context_pages": [
+      [
+       96
+      ],
+      [
+       97
+      ],
+      [
+       190
+      ],
+      [
+       98
+      ],
+      [
+       98
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-6",
+     "question": "What growth is projected for East Asia and Pacific in 2026?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 3.13,
+     "context_pages": [
+      [
+       81
+      ],
+      [
+       82
+      ],
+      [
+       82
+      ],
+      [
+       83
+      ],
+      [
+       83
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-7",
+     "question": "What is the 2026 growth forecast for Sub-Saharan Africa?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 3.27,
+     "context_pages": [
+      [
+       99
+      ],
+      [
+       100
+      ],
+      [
+       100
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-8",
+     "question": "By how much are sovereign spreads associated with the rise in EMDE debt since 2010?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.25,
+     "context_pages": [
+      [
+       19,
+       20
+      ],
+      [
+       109
+      ],
+      [
+       122
+      ],
+      [
+       120
+      ]
+     ],
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-9",
+     "question": "SAR growth 2026",
+     "source": "keywords",
+     "answerable": true,
+     "latency": 2.53,
+     "context_pages": [
+      [
+       96
+      ],
+      [
+       97
+      ],
+      [
+       98
+      ],
+      [
+       98
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-10",
+     "question": "What is the population of Tokyo?",
+     "source": "unanswerable",
+     "answerable": false,
+     "latency": 4.11,
+     "context_pages": [
+      [
+       187
+      ],
+      [
+       40,
+       41
+      ],
+      [
+       187,
+       188
+      ],
+      [
+       56
+      ]
+     ]
+    }
+   ],
+   "summary": {
+    "questions": 10,
+    "hit@k": 1,
+    "mrr": 0.9444444444444444,
+    "context_recall": 1.0,
+    "avg_latency_s": 2.39
+   }
+  },
+  "advanced-no-rewrite-no-rerank": {
+   "rows": [
+    {
+     "id": "wb-1",
+     "question": "What is the growth outlook for South Asia in this report?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.41,
+     "context_pages": [
+      [
+       98
+      ],
+      [
+       96
+      ],
+      [
+       97
+      ],
+      [
+       98
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-2",
+     "question": "What does Chapter 3 say about sovereign debt in developing economies?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.17,
+     "context_pages": [
+      [
+       141
+      ],
+      [
+       139,
+       140
+      ],
+      [
+       110
+      ],
+      [
+       109
+      ],
+      [
+       139
+      ],
+      [
+       113
+      ]
+     ],
+     "hit": true,
+     "rr": 0.3333333333333333,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-3",
+     "question": "According to the executive summary, what are the main risks to the global outlook?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.14,
+     "context_pages": [
+      [
+       19
+      ],
+      [
+       20
+      ],
+      [
+       19,
+       20
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-4",
+     "question": "What is global growth projected to be in 2026?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.06,
+     "context_pages": [
+      [
+       40
+      ],
+      [
+       50,
+       51
+      ],
+      [
+       19
+      ],
+      [
+       78
+      ],
+      [
+       25
+      ],
+      [
+       96
+      ]
+     ],
+     "hit": true,
+     "rr": 0.3333333333333333,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-5",
+     "question": "What is India's growth forecast for fiscal year 2026/27?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.1,
+     "context_pages": [
+      [
+       96
+      ],
+      [
+       98
+      ],
+      [
+       97
+      ],
+      [
+       98
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-6",
+     "question": "What growth is projected for East Asia and Pacific in 2026?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.14,
+     "context_pages": [
+      [
+       82
+      ],
+      [
+       82
+      ],
+      [
+       81
+      ],
+      [
+       83
+      ],
+      [
+       83
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-7",
+     "question": "What is the 2026 growth forecast for Sub-Saharan Africa?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.14,
+     "context_pages": [
+      [
+       101
+      ],
+      [
+       100
+      ],
+      [
+       102
+      ],
+      [
+       100
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-8",
+     "question": "By how much are sovereign spreads associated with the rise in EMDE debt since 2010?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.09,
+     "context_pages": [
+      [
+       109
+      ],
+      [
+       120
+      ],
+      [
+       19,
+       20
+      ],
+      [
+       112
+      ],
+      [
+       120
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-9",
+     "question": "SAR growth 2026",
+     "source": "keywords",
+     "answerable": true,
+     "latency": 0.12,
+     "context_pages": [
+      [
+       97
+      ],
+      [
+       96
+      ],
+      [
+       98
+      ],
+      [
+       98
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-10",
+     "question": "What is the population of Tokyo?",
+     "source": "unanswerable",
+     "answerable": false,
+     "latency": 0.05,
+     "context_pages": [
+      [
+       40,
+       41
+      ],
+      [
+       191
+      ],
+      [
+       74
+      ],
+      [
+       52
+      ],
+      [
+       56
+      ],
+      [
+       17,
+       18
+      ]
+     ]
+    }
+   ],
+   "summary": {
+    "questions": 10,
+    "hit@k": 1,
+    "mrr": 0.8518518518518519,
+    "context_recall": 1.0,
+    "avg_latency_s": 0.14
+   }
+  },
+  "advanced-no-rewrite-no-hybrid": {
+   "rows": [
+    {
+     "id": "wb-1",
+     "question": "What is the growth outlook for South Asia in this report?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 3.04,
+     "context_pages": [
+      [
+       96
+      ],
+      [
+       97
+      ],
+      [
+       98
+      ],
+      [
+       98
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-2",
+     "question": "What does Chapter 3 say about sovereign debt in developing economies?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 1.78,
+     "context_pages": [
+      [
+       109
+      ],
+      [
+       110,
+       111
+      ],
+      [
+       128,
+       129,
+       130
+      ],
+      [
+       139
+      ],
+      [
+       116
+      ],
+      [
+       141
+      ],
+      [
+       110
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-3",
+     "question": "According to the executive summary, what are the main risks to the global outlook?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 1.04,
+     "context_pages": [
+      [
+       19
+      ],
+      [
+       19,
+       20
+      ],
+      [
+       20
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-4",
+     "question": "What is global growth projected to be in 2026?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.02,
+     "context_pages": [
+      [
+       19
+      ],
+      [
+       40
+      ],
+      [
+       25
+      ],
+      [
+       36
+      ],
+      [
+       27
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-5",
+     "question": "What is India's growth forecast for fiscal year 2026/27?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 5.66,
+     "context_pages": [
+      [
+       96
+      ],
+      [
+       97
+      ],
+      [
+       98
+      ],
+      [
+       98
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-6",
+     "question": "What growth is projected for East Asia and Pacific in 2026?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 3.2,
+     "context_pages": [
+      [
+       81
+      ],
+      [
+       82
+      ],
+      [
+       82
+      ],
+      [
+       83
+      ],
+      [
+       83
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-7",
+     "question": "What is the 2026 growth forecast for Sub-Saharan Africa?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 3.76,
+     "context_pages": [
+      [
+       99
+      ],
+      [
+       100
+      ],
+      [
+       99
+      ],
+      [
+       100
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-8",
+     "question": "By how much are sovereign spreads associated with the rise in EMDE debt since 2010?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 1.36,
+     "context_pages": [
+      [
+       19,
+       20
+      ],
+      [
+       109
+      ],
+      [
+       122
+      ],
+      [
+       112
+      ]
+     ],
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-9",
+     "question": "SAR growth 2026",
+     "source": "keywords",
+     "answerable": true,
+     "latency": 2.44,
+     "context_pages": [
+      [
+       96
+      ],
+      [
+       97
+      ],
+      [
+       98
+      ],
+      [
+       98
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "wb-10",
+     "question": "What is the population of Tokyo?",
+     "source": "unanswerable",
+     "answerable": false,
+     "latency": 3.06,
+     "context_pages": [
+      [
+       187
+      ],
+      [
+       40,
+       41
+      ],
+      [
+       187,
+       188
+      ],
+      [
+       26
+      ],
+      [
+       56
+      ]
+     ]
+    }
+   ],
+   "summary": {
+    "questions": 10,
+    "hit@k": 1,
+    "mrr": 0.9444444444444444,
+    "context_recall": 1.0,
+    "avg_latency_s": 2.64
+   }
+  }
+ }
+}

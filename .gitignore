@@ -1,0 +1,13 @@
+.env
+.venv/
+.index/
+__pycache__/
+*.pyc
+.DS_Store
+.pytest_cache/
+
+# private notes
+*DO_NOT_COMMIT*
+
+# regenerable LLM response cache (vision transcriptions in cache/vision ARE committed)
+cache/llm/

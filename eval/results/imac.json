@@ -1,0 +1,1132 @@
+{
+ "doc": "imac",
+ "date": "2026-10-15T16:19:50",
+ "embedder": "local-bge-small-en-v1.5",
+ "answers": false,
+ "variants": {
+  "naive": {
+   "rows": [
+    {
+     "id": "imac-1",
+     "question": "How much less energy does iMac use compared to the ENERGY STAR requirement?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       7
+      ],
+      [
+       7
+      ],
+      [
+       12
+      ],
+      [
+       10
+      ],
+      [
+       10
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-2",
+     "question": "What is the total carbon footprint of the iMac, and how much of that comes from product use versus manufacturing?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       10
+      ],
+      [
+       10
+      ],
+      [
+       1
+      ],
+      [
+       9
+      ],
+      [
+       10
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 0.3333333333333333
+    },
+    {
+     "id": "imac-3",
+     "question": "What material is the iMac stand made from, and what percentage of it is recycled?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       4
+      ],
+      [
+       2
+      ],
+      [
+       6
+      ],
+      [
+       2
+      ],
+      [
+       4
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-4",
+     "question": "What is the power consumption of iMac in sleep mode at 115V?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       12
+      ],
+      [
+       12
+      ],
+      [
+       12
+      ],
+      [
+       10
+      ],
+      [
+       12
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-5",
+     "question": "What share of the iMac packaging is fiber-based?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       6
+      ],
+      [
+       6
+      ],
+      [
+       6
+      ],
+      [
+       1
+      ],
+      [
+       11
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-6",
+     "question": "How much recycled content does iMac contain overall?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       4
+      ],
+      [
+       6
+      ],
+      [
+       2
+      ],
+      [
+       4
+      ],
+      [
+       2
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-7",
+     "question": "What share of the carbon footprint comes from transportation?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       2
+      ],
+      [
+       11
+      ],
+      [
+       9
+      ],
+      [
+       11
+      ],
+      [
+       2
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-8",
+     "question": "What recycled gold does iMac use and where?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       11
+      ],
+      [
+       2
+      ],
+      [
+       1
+      ],
+      [
+       4
+      ],
+      [
+       4
+      ]
+     ],
+     "hit": true,
+     "rr": 0.25,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-9",
+     "question": "What carbon footprint does the iMac four ports 512GB configuration have?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       10
+      ],
+      [
+       10
+      ],
+      [
+       10
+      ],
+      [
+       11
+      ],
+      [
+       2
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-10",
+     "question": "What is the retail price of the iMac?",
+     "source": "unanswerable",
+     "answerable": false,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       10
+      ],
+      [
+       4
+      ],
+      [
+       10
+      ],
+      [
+       11
+      ],
+      [
+       12
+      ]
+     ]
+    }
+   ],
+   "summary": {
+    "questions": 10,
+    "hit@k": 1,
+    "mrr": 0.9166666666666666,
+    "context_recall": 0.9259259259259259,
+    "avg_latency_s": 0.01
+   }
+  },
+  "advanced-no-rewrite": {
+   "rows": [
+    {
+     "id": "imac-1",
+     "question": "How much less energy does iMac use compared to the ENERGY STAR requirement?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 7.98,
+     "context_pages": [
+      [
+       7
+      ],
+      [
+       7
+      ],
+      [
+       12
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       1
+      ],
+      [
+       2
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-2",
+     "question": "What is the total carbon footprint of the iMac, and how much of that comes from product use versus manufacturing?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 8.13,
+     "context_pages": [
+      [
+       10
+      ],
+      [
+       2
+      ],
+      [
+       1
+      ],
+      [
+       9
+      ],
+      [
+       4
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-3",
+     "question": "What material is the iMac stand made from, and what percentage of it is recycled?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 9.47,
+     "context_pages": [
+      [
+       3,
+       4
+      ],
+      [
+       1
+      ],
+      [
+       4
+      ],
+      [
+       6
+      ],
+      [
+       1
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-4",
+     "question": "What is the power consumption of iMac in sleep mode at 115V?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 92.12,
+     "context_pages": [
+      [
+       12
+      ],
+      [
+       7
+      ],
+      [
+       7
+      ],
+      [
+       9
+      ],
+      [
+       5,
+       6
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-5",
+     "question": "What share of the iMac packaging is fiber-based?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 8.69,
+     "context_pages": [
+      [
+       6
+      ],
+      [
+       1
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       9
+      ],
+      [
+       1
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-6",
+     "question": "How much recycled content does iMac contain overall?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 5.65,
+     "context_pages": [
+      [
+       6
+      ],
+      [
+       4
+      ],
+      [
+       2
+      ],
+      [
+       1
+      ],
+      [
+       3,
+       4
+      ]
+     ],
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-7",
+     "question": "What share of the carbon footprint comes from transportation?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 4.11,
+     "context_pages": [
+      [
+       9
+      ],
+      [
+       9
+      ],
+      [
+       10
+      ],
+      [
+       2
+      ],
+      [
+       1
+      ]
+     ],
+     "hit": true,
+     "rr": 0.3333333333333333,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-8",
+     "question": "What recycled gold does iMac use and where?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 3.56,
+     "context_pages": [
+      [
+       4
+      ],
+      [
+       1
+      ],
+      [
+       9
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-9",
+     "question": "What carbon footprint does the iMac four ports 512GB configuration have?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 3.6,
+     "context_pages": [
+      [
+       10
+      ],
+      [
+       2
+      ],
+      [
+       1
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       1
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-10",
+     "question": "What is the retail price of the iMac?",
+     "source": "unanswerable",
+     "answerable": false,
+     "latency": 3.19,
+     "context_pages": [
+      [
+       6
+      ],
+      [
+       1
+      ],
+      [
+       12
+      ],
+      [
+       8
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       3
+      ]
+     ]
+    }
+   ],
+   "summary": {
+    "questions": 10,
+    "hit@k": 1,
+    "mrr": 0.8703703703703703,
+    "context_recall": 1.0,
+    "avg_latency_s": 14.65
+   }
+  },
+  "advanced-no-rewrite-no-rerank": {
+   "rows": [
+    {
+     "id": "imac-1",
+     "question": "How much less energy does iMac use compared to the ENERGY STAR requirement?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.02,
+     "context_pages": [
+      [
+       7
+      ],
+      [
+       7
+      ],
+      [
+       2
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       12
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-2",
+     "question": "What is the total carbon footprint of the iMac, and how much of that comes from product use versus manufacturing?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.02,
+     "context_pages": [
+      [
+       10
+      ],
+      [
+       2
+      ],
+      [
+       4
+      ],
+      [
+       9
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-3",
+     "question": "What material is the iMac stand made from, and what percentage of it is recycled?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 0.02,
+     "context_pages": [
+      [
+       3,
+       4
+      ],
+      [
+       3
+      ],
+      [
+       1
+      ],
+      [
+       2
+      ],
+      [
+       4
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-4",
+     "question": "What is the power consumption of iMac in sleep mode at 115V?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.02,
+     "context_pages": [
+      [
+       12
+      ],
+      [
+       7
+      ],
+      [
+       7
+      ],
+      [
+       4
+      ],
+      [
+       9
+      ],
+      [
+       10
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-5",
+     "question": "What share of the iMac packaging is fiber-based?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       6
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       1
+      ],
+      [
+       1
+      ],
+      [
+       4
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-6",
+     "question": "How much recycled content does iMac contain overall?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       2
+      ],
+      [
+       6
+      ],
+      [
+       4
+      ],
+      [
+       9
+      ],
+      [
+       3
+      ]
+     ],
+     "hit": true,
+     "rr": 0.3333333333333333,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-7",
+     "question": "What share of the carbon footprint comes from transportation?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       9
+      ],
+      [
+       10
+      ],
+      [
+       2
+      ],
+      [
+       4
+      ],
+      [
+       6
+      ],
+      [
+       9
+      ]
+     ],
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-8",
+     "question": "What recycled gold does iMac use and where?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       4
+      ],
+      [
+       1
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       2
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-9",
+     "question": "What carbon footprint does the iMac four ports 512GB configuration have?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       10
+      ],
+      [
+       2
+      ],
+      [
+       1
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-10",
+     "question": "What is the retail price of the iMac?",
+     "source": "unanswerable",
+     "answerable": false,
+     "latency": 0.01,
+     "context_pages": [
+      [
+       1
+      ],
+      [
+       12
+      ],
+      [
+       2
+      ],
+      [
+       10
+      ],
+      [
+       6
+      ],
+      [
+       1
+      ]
+     ]
+    }
+   ],
+   "summary": {
+    "questions": 10,
+    "hit@k": 1,
+    "mrr": 0.8703703703703703,
+    "context_recall": 1.0,
+    "avg_latency_s": 0.01
+   }
+  },
+  "advanced-no-rewrite-no-hybrid": {
+   "rows": [
+    {
+     "id": "imac-1",
+     "question": "How much less energy does iMac use compared to the ENERGY STAR requirement?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 3.35,
+     "context_pages": [
+      [
+       7
+      ],
+      [
+       7
+      ],
+      [
+       12
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       1
+      ],
+      [
+       2
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-2",
+     "question": "What is the total carbon footprint of the iMac, and how much of that comes from product use versus manufacturing?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 3.24,
+     "context_pages": [
+      [
+       10
+      ],
+      [
+       2
+      ],
+      [
+       1
+      ],
+      [
+       9
+      ],
+      [
+       4
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-3",
+     "question": "What material is the iMac stand made from, and what percentage of it is recycled?",
+     "source": "brief",
+     "answerable": true,
+     "latency": 3.21,
+     "context_pages": [
+      [
+       3,
+       4
+      ],
+      [
+       1
+      ],
+      [
+       4
+      ],
+      [
+       6
+      ],
+      [
+       1
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-4",
+     "question": "What is the power consumption of iMac in sleep mode at 115V?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 3.16,
+     "context_pages": [
+      [
+       12
+      ],
+      [
+       7
+      ],
+      [
+       7
+      ],
+      [
+       9
+      ],
+      [
+       5,
+       6
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-5",
+     "question": "What share of the iMac packaging is fiber-based?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 3.06,
+     "context_pages": [
+      [
+       6
+      ],
+      [
+       1
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       1
+      ],
+      [
+       4
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-6",
+     "question": "How much recycled content does iMac contain overall?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 3.02,
+     "context_pages": [
+      [
+       6
+      ],
+      [
+       4
+      ],
+      [
+       2
+      ],
+      [
+       1
+      ],
+      [
+       3,
+       4
+      ]
+     ],
+     "hit": true,
+     "rr": 0.5,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-7",
+     "question": "What share of the carbon footprint comes from transportation?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 2.84,
+     "context_pages": [
+      [
+       9
+      ],
+      [
+       9
+      ],
+      [
+       10
+      ],
+      [
+       2
+      ],
+      [
+       1
+      ]
+     ],
+     "hit": true,
+     "rr": 0.3333333333333333,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-8",
+     "question": "What recycled gold does iMac use and where?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 3.18,
+     "context_pages": [
+      [
+       4
+      ],
+      [
+       1
+      ],
+      [
+       9
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-9",
+     "question": "What carbon footprint does the iMac four ports 512GB configuration have?",
+     "source": "extra",
+     "answerable": true,
+     "latency": 4.06,
+     "context_pages": [
+      [
+       10
+      ],
+      [
+       2
+      ],
+      [
+       1
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       1
+      ]
+     ],
+     "hit": true,
+     "rr": 1.0,
+     "context_recall": 1.0
+    },
+    {
+     "id": "imac-10",
+     "question": "What is the retail price of the iMac?",
+     "source": "unanswerable",
+     "answerable": false,
+     "latency": 3.17,
+     "context_pages": [
+      [
+       6
+      ],
+      [
+       1
+      ],
+      [
+       12
+      ],
+      [
+       8
+      ],
+      [
+       5,
+       6
+      ]
+     ]
+    }
+   ],
+   "summary": {
+    "questions": 10,
+    "hit@k": 1,
+    "mrr": 0.8703703703703703,
+    "context_recall": 1.0,
+    "avg_latency_s": 3.23
+   }
+  }
+ }
+}
