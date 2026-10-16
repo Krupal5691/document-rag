@@ -77,8 +77,10 @@ curl -s localhost:8000/ask -H 'content-type: application/json' \
   -d '{"doc": "worldbank", "question": "What is the growth outlook for South Asia?"}'
 ```
 
-`GET /health`, `GET /documents`, `POST /ask` (answer, numbered sources with pages and section,
-per-stage timings, optional trace). Inputs are validated, errors never expose stack traces, a
+`GET /health`, `GET /documents`, `POST /ask` (answer, numbered sources with pages and section, and for
+each cited source the evidence sentence, page and highlight boxes in PDF coordinates; per-stage
+timings; optional trace), `GET /documents/{doc}/pages/{page}/highlight.pdf?rects=...` (the page with
+those boxes highlighted). Inputs are validated, errors never expose stack traces, a
 daily-quota failure returns HTTP 429, and every request is logged to `logs/queries.jsonl`.
 
 ## Docker
@@ -93,6 +95,10 @@ The image downloads the local models at build time, runs as a non-root user and 
 
 ## The demo
 
+- **Verifiable citations**: every [n] in an answer is a link that opens the source page as a PDF with
+  the supporting sentence highlighted; each cited source also shows the highlighted page inline. The
+  evidence sentence is matched to the claim (numbers weighted), located on the page with PyMuPDF
+  (exact, then fuzzy 5-word windows, then the cited numbers for chart transcriptions).
 - **Ask**: naive and advanced answers side by side with their sources, plus a step-by-step trace of
   the advanced pipeline (rewritten query and filters → dense → BM25 → RRF → cross-encoder rerank →
   final context).
@@ -128,6 +134,7 @@ rag_core/
   store.py               Qdrant index: dense, BM25, hybrid RRF, filters, parent docstore
   query.py               query rewriting and metadata filters
   rerank.py              cross-encoder reranker
+  citations.py           evidence sentence per citation, located and highlighted in the PDF
   generate.py            grounded answer prompt with citations
   pipeline.py            ingestion, NaiveRAG, AdvancedRAG (each step switchable)
   evaluation.py          hit@k, MRR, context recall, accuracy, refusal, faithfulness
@@ -169,7 +176,7 @@ Changing the embedding provider creates separate collections, so re-run `ingest`
   data, never as instructions (prompt-injection guard). Secrets live only in `.env`, which is git-ignored.
 - **Observability.** Every answer carries per-stage timings and a full trace (rewritten query,
   filters, dense / BM25 / fused / reranked lists, which model answered); the API logs each request.
-- **Quality gates.** 25 pytest tests (parsing, chunking, query rules, API contract, LLM paths with a
+- **Quality gates.** 26 pytest tests (parsing, chunking, query rules, API contract, LLM paths with a
   fake Gemini) run in GitHub Actions on every push; `ruff` lint; evaluation with ablations.
 - **Scaling.** Point `QDRANT_URL` at a Qdrant server or cluster; add documents in `documents.py`; for
   many documents add payload indexes on `doc_id`/`region`/`chapter` and a queue for ingestion.

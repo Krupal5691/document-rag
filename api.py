@@ -14,7 +14,7 @@ from functools import lru_cache
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
-from rag_core import config, documents, embeddings, llm, pipeline
+from rag_core import citations, config, documents, embeddings, llm, pipeline
 from rag_core.llm import QuotaExhaustedError
 from rag_core.pipeline import Options
 
@@ -34,6 +34,13 @@ class AskRequest(BaseModel):
     include_trace: bool = False
 
 
+class Evidence(BaseModel):
+    page: int = Field(description="1-based PDF page where the supporting text was found")
+    sentence: str = Field(description="The passage sentence that supports the cited claim")
+    rects: list[list[float]] = Field(description="Highlight boxes [x0, y0, x1, y1] in PDF points")
+    match: str = Field(description="exact | partial | numbers | none")
+
+
 class Source(BaseModel):
     n: int
     pages: list[int]
@@ -41,6 +48,7 @@ class Source(BaseModel):
     label: str | None
     text: str
     cited: bool
+    evidence: Evidence | None = None
 
 
 class AskResponse(BaseModel):
@@ -75,6 +83,25 @@ def list_documents():
             for d in documents.DOCUMENTS.values()]
 
 
+@app.get("/documents/{doc}/pages/{page}/highlight.pdf")
+def highlighted_page(doc: str, page: int, rects: str = ""):
+    """One PDF page with highlight boxes, e.g. ?rects=36,692,260,703;207,680,259,691 (from /ask evidence)."""
+    from fastapi.responses import Response
+    if doc not in documents.DOCUMENTS:
+        raise HTTPException(404, f"Unknown document '{doc}'")
+    try:
+        boxes = [tuple(float(v) for v in r.split(",")) for r in rects.split(";") if r]
+        assert all(len(b) == 4 for b in boxes)
+    except (ValueError, AssertionError) as e:
+        raise HTTPException(422, "rects must be 'x0,y0,x1,y1;...'") from e
+    h = citations.Highlight(n=0, page=page, sentence="", rects=boxes)
+    try:
+        pdf = citations.page_pdf(documents.get(doc).path, h)
+    except (IndexError, ValueError) as e:
+        raise HTTPException(404, f"Page {page} not found") from e
+    return Response(pdf, media_type="application/pdf")
+
+
 @app.post("/ask", response_model=AskResponse)
 def ask(req: AskRequest):
     if req.doc not in documents.DOCUMENTS:
@@ -92,9 +119,14 @@ def ask(req: AskRequest):
         raise HTTPException(500, f"Internal error (request {rid})") from e
     total = time.perf_counter() - t
 
+    hls = citations.locate(res.answer, res.contexts, documents.get(req.doc).path) if res.answer else {}
     sources = [Source(n=i, pages=[p for p in (c.get("pages") or [c.get("page")]) if p is not None],
                       section=" > ".join(c.get("section_path") or []), label=c.get("label"),
-                      text=c["text"], cited=i in res.cited) for i, c in enumerate(res.contexts, 1)]
+                      text=c["text"], cited=i in res.cited,
+                      evidence=Evidence(page=hls[i].page, sentence=hls[i].sentence,
+                                        rects=[list(r) for r in hls[i].rects], match=hls[i].match)
+                      if i in hls else None)
+               for i, c in enumerate(res.contexts, 1)]
     timings = {k: round(v, 3) for k, v in res.timings.items()} | {"total": round(total, 3)}
 
     QUERY_LOG.parent.mkdir(exist_ok=True)

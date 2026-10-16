@@ -12,7 +12,7 @@ import pandas as pd
 import pymupdf
 import streamlit as st
 
-from rag_core import config, documents, embeddings, llm, pipeline
+from rag_core import citations, config, documents, embeddings, llm, pipeline
 from rag_core.pipeline import Options
 
 warnings.filterwarnings("ignore")
@@ -91,7 +91,52 @@ tab_ask, tab_parse, tab_eval, tab_how = st.tabs(["💬 Ask", "🔬 Parsing inspe
 
 # ----------------------------------------------------------------------------- ask
 
-def show_contexts(contexts: list[dict], cited: list[int]):
+HL_DIR = config.ROOT / "static" / "hl"
+
+
+@st.cache_data(show_spinner=False, max_entries=200)
+def cached_ask(doc_id: str, variant: str, opts_json: str, question: str, with_answer: bool) -> dict:
+    """Streamlit re-runs the whole script on every click; caching the result means the LLM is called
+    once per question, not once per interaction."""
+    return get_rag(doc_id, variant, opts_json).ask(question, generate_answer=with_answer).to_dict()
+
+
+@st.cache_data(show_spinner=False, max_entries=200)
+def evidence(doc_id: str, answer: str, contexts_json: str) -> dict[int, dict]:
+    hl = citations.locate(answer, json.loads(contexts_json), documents.get(doc_id).path)
+    return {n: h.__dict__ for n, h in hl.items()}
+
+
+@st.cache_data(show_spinner=False, max_entries=200)
+def page_image(doc_id: str, h: dict) -> bytes:
+    return citations.page_png(documents.get(doc_id).path, citations.Highlight(**h))
+
+
+def pdf_link(doc_id: str, h: dict) -> str:
+    """Write the highlighted page once and return its static URL (served by Streamlit)."""
+    hl = citations.Highlight(**h)
+    name = f"{doc_id}-p{hl.page}-{hl.key}.pdf"
+    path = HL_DIR / name
+    if not path.exists():
+        HL_DIR.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(citations.page_pdf(documents.get(doc_id).path, hl))
+    return f"app/static/hl/{name}"
+
+
+def show_answer(doc_id: str, res: dict) -> dict[int, dict]:
+    """Answer with every [n] turned into a link to the highlighted PDF page."""
+    if not res["answer"]:
+        return {}
+    hls = evidence(doc_id, res["answer"], json.dumps(res["contexts"]))
+    urls = {n: pdf_link(doc_id, h) for n, h in hls.items()}
+    titles = {n: f"Open page {h['page']} with the evidence highlighted" for n, h in hls.items()}
+    st.markdown(citations.link_citations(res["answer"], urls, titles))
+    st.caption("Click a citation like [1] to open the source page with the supporting text highlighted.")
+    return hls
+
+
+def show_contexts(doc_id: str, contexts: list[dict], cited: list[int], hls: dict[int, dict] | None = None):
+    hls = hls or {}
     for i, c in enumerate(contexts, 1):
         where = " > ".join(c.get("section_path") or []) or "—"
         tag = " ✅ cited" if i in cited else ""
@@ -99,6 +144,14 @@ def show_contexts(contexts: list[dict], cited: list[int]):
         with st.expander(f"[{i}] p.{', '.join(map(str, c.get('pages') or [c.get('page')]))} · "
                          f"{c.get('label') or c.get('kind') or ''}{origin}{tag}"):
             st.caption(where)
+            h = hls.get(i)
+            if h:
+                found = {"exact": "exact sentence found", "partial": "sentence found (approximate match)",
+                         "numbers": "cited numbers found", "none": "page only - text not matched"}[h["match"]]
+                st.markdown(f"**Evidence** (page {h['page']}, {found}):  \n> {h['sentence']}")
+                st.markdown(f"[Open highlighted page ↗]({pdf_link(doc_id, h)})")
+                st.image(page_image(doc_id, h), use_container_width=True)
+                st.markdown("**Full passage**")
             st.markdown(c["text"])
 
 
@@ -123,29 +176,25 @@ with tab_ask:
         question = st.text_input("Question", value="" if sample.startswith("—") else sample)
 
         if question:
-            adv = get_rag(doc_id, "advanced", json.dumps(opts.__dict__))
+            opts_json = json.dumps(opts.__dict__)
             cols = st.columns(2) if mode == "Compare" else [None, st.container()]
             if mode == "Compare":
                 with cols[0]:
                     st.subheader("Naive RAG")
                     st.caption("page text · 500-char chunks · dense top-5")
                     with st.spinner("Naive..."):
-                        nres = get_rag(doc_id, "naive").ask(question, generate_answer=has_key)
-                    if has_key:
-                        st.markdown(nres.answer)
-                    show_contexts(nres.contexts, nres.cited)
+                        nres = cached_ask(doc_id, "naive", "", question, has_key)
+                    show_contexts(doc_id, nres["contexts"], nres["cited"], show_answer(doc_id, nres))
             with cols[1]:
                 st.subheader("Advanced RAG")
                 st.caption("layout parsing · structured chunks · rewrite · hybrid+RRF · rerank · parent expansion")
                 with st.spinner("Advanced..."):
-                    ares = adv.ask(question, generate_answer=has_key)
-                if has_key:
-                    st.markdown(ares.answer)
-                show_contexts(ares.contexts, ares.cited)
+                    ares = cached_ask(doc_id, "advanced", opts_json, question, has_key)
+                show_contexts(doc_id, ares["contexts"], ares["cited"], show_answer(doc_id, ares))
 
             st.divider()
             st.subheader("How the advanced pipeline got there")
-            t = ares.trace
+            t = ares["trace"]
             plan = t.get("plan", {})
             s1, s2, s3 = st.columns(3)
             s1.markdown(f"**Original question**  \n{plan.get('original')}")
@@ -162,7 +211,8 @@ with tab_ask:
                         hits_table(t[key])
             if t.get("linked"):
                 st.info(f"Followed references to: {', '.join(t['linked'])}")
-            st.caption("Timings (s): " + ", ".join(f"{k} {v:.2f}" for k, v in ares.timings.items()))
+            st.caption("Timings (s): " + ", ".join(f"{k} {v:.2f}" for k, v in ares["timings"].items())
+                       + (f" · answered by `{t['answer_model']}`" if t.get("answer_model") else ""))
 
 
 # ----------------------------------------------------------------------------- parsing inspector

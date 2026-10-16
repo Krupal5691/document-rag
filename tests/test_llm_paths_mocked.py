@@ -103,3 +103,17 @@ def test_fallback_rotates_past_exhausted_models(monkeypatch):
     monkeypatch.setattr(config, "FALLBACK_MODELS", [])
     with pytest.raises(llm.QuotaExhaustedError):
         llm._with_fallback("a", call)
+
+
+def test_citation_evidence_is_found_and_highlighted():
+    from rag_core import citations
+    from rag_core.parsing.structure import parse_pdf
+    cfg = documents.get("worldbank")
+    page19 = " ".join(e.text for e in parse_pdf(cfg.path, "worldbank").elements if e.page == 19)
+    hl = citations.locate("Global growth is projected to slow to 2.5 percent in 2026 [1].",
+                          [{"text": page19, "pages": [19]}], cfg.path)[1]
+    assert hl.page == 19 and hl.match == "exact" and hl.rects          # despite "Te"/"The" and ligatures
+    assert "2.5 percent" in hl.sentence
+    assert citations.page_pdf(cfg.path, hl).startswith(b"%PDF")
+    linked = citations.link_citations("Growth slows [1].", {1: "app/static/hl/x.pdf"})
+    assert linked == "Growth slows [[1]](app/static/hl/x.pdf)."
