@@ -38,7 +38,9 @@ class Evidence(BaseModel):
     page: int = Field(description="1-based PDF page where the supporting text was found")
     sentence: str = Field(description="The passage sentence that supports the cited claim")
     rects: list[list[float]] = Field(description="Highlight boxes [x0, y0, x1, y1] in PDF points")
-    match: str = Field(description="exact | partial | numbers | none")
+    match: str = Field(description="cells | exact | partial | numbers | none")
+    label_rects: list[list[float]] = Field(default_factory=list,
+                                           description="Row-label boxes for table cells (match = cells)")
 
 
 class Source(BaseModel):
@@ -124,7 +126,8 @@ def ask(req: AskRequest):
                       section=" > ".join(c.get("section_path") or []), label=c.get("label"),
                       text=c["text"], cited=i in res.cited,
                       evidence=Evidence(page=hls[i].page, sentence=hls[i].sentence,
-                                        rects=[list(r) for r in hls[i].rects], match=hls[i].match)
+                                        rects=[list(r) for r in hls[i].rects], match=hls[i].match,
+                                        label_rects=[list(r) for r in hls[i].label_rects])
                       if i in hls else None)
                for i, c in enumerate(res.contexts, 1)]
     timings = {k: round(v, 3) for k, v in res.timings.items()} | {"total": round(total, 3)}

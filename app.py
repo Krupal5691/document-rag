@@ -146,7 +146,8 @@ def show_contexts(doc_id: str, contexts: list[dict], cited: list[int], hls: dict
             st.caption(where)
             h = hls.get(i)
             if h:
-                found = {"exact": "exact sentence found", "partial": "sentence found (approximate match)",
+                found = {"cells": "exact table cells - values in yellow, their row labels in blue",
+                         "exact": "exact sentence found", "partial": "sentence found (approximate match)",
                          "numbers": "cited numbers found", "none": "page only - text not matched"}[h["match"]]
                 st.markdown(f"**Evidence** (page {h['page']}, {found}):  \n> {h['sentence']}")
                 st.markdown(f"[Open highlighted page ↗]({pdf_link(doc_id, h)})")

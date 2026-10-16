@@ -117,3 +117,25 @@ def test_citation_evidence_is_found_and_highlighted():
     assert citations.page_pdf(cfg.path, hl).startswith(b"%PDF")
     linked = citations.link_citations("Growth slows [1].", {1: "app/static/hl/x.pdf"})
     assert linked == "Growth slows [[1]](app/static/hl/x.pdf)."
+
+
+def test_table_citations_highlight_exact_cells():
+    from rag_core import citations
+    from rag_core.parsing.structure import parse_pdf
+    cfg = documents.get("worldbank")
+    table = next(e for e in parse_pdf(cfg.path, "worldbank").elements if e.label == "Table 2.10")
+    hl = citations.locate("Bangladesh's growth is forecast at 4.6 percent in fiscal year 2026/27 [1].",
+                          [{"text": table.text, "pages": [98], "kind": "table"}], cfg.path)[1]
+    assert hl.match == "cells" and len(hl.rects) == 1                  # one cell, not the whole table
+    page = pymupdf.open(cfg.path)[97]
+    assert page.get_textbox(pymupdf.Rect(hl.rects[0])).strip() == "4.6"
+    label = " ".join(page.get_textbox(pymupdf.Rect(r)).strip() for r in hl.label_rects)
+    assert "Bangladesh" in label and "Excluding" not in label          # Table 2.10 row, not Table 2.9
+
+    cfg = documents.get("imac")
+    page10 = " ".join(e.text for e in parse_pdf(cfg.path, "imac").elements if e.page == 10)
+    hl = citations.locate("The total product footprint is 346 kg CO2e [1]. Product use accounts for 45% [1].",
+                          [{"text": page10, "pages": [10]}], cfg.path)[1]
+    page = pymupdf.open(cfg.path)[9]
+    labels = " ".join(page.get_textbox(pymupdf.Rect(r)).strip() for r in hl.label_rects)
+    assert hl.match == "cells" and "Total product footprint" in labels and "Life cycle" not in labels

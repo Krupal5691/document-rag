@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import hashlib
 import re
+import unicodedata
 from dataclasses import dataclass, field
 from functools import lru_cache
 
@@ -35,11 +36,12 @@ class Highlight:
     page: int                                    # 1-based page where the evidence was found
     sentence: str                                # evidence sentence from the passage
     rects: list[tuple[float, float, float, float]] = field(default_factory=list)
-    match: str = "none"                          # "exact" | "partial" | "numbers" | "none"
+    match: str = "none"                          # "cells" | "exact" | "partial" | "numbers" | "none"
+    label_rects: list[tuple[float, float, float, float]] = field(default_factory=list)   # table row labels
 
     @property
     def key(self) -> str:
-        raw = f"{self.page}|{self.rects}"
+        raw = f"{self.page}|{self.rects}|{self.label_rects}"
         return hashlib.sha1(raw.encode()).hexdigest()[:12]
 
 
@@ -93,6 +95,85 @@ def _search(page: pymupdf.Page, sentence: str, claim_numbers: list[str] | None =
     return (rects, "numbers") if rects else ([], "none")
 
 
+# ------------------------------------------------------------------------------- table cells
+
+YEAR_RE = re.compile(r"^(19|20)\d\d([/–-]\d{2,4})?[a-z]?$")
+VALUE_RE = re.compile(r"[-−–]?\d[\d,]*(?:\.\d+)?%?(?:/\d{2,4})?[a-z]?")
+
+
+def _year(tok: str) -> str:
+    return re.sub(r"[a-z]$", "", tok.lower())        # "2026/27f" (forecast) and "2026/27" name the same column
+
+
+def _claim_cues(claim: str) -> tuple[list[str], set[str], set[str]]:
+    """Split the claim into cited values (346, 50%, 4.6), year cues that name a column (2026/27f) and
+    words that may name a row (production, bangladesh). Numbers glued to letters ("256GB", "CO2e") are
+    product names or units, not cited quantities."""
+    claim = CITE_RE.sub("", unicodedata.normalize("NFKC", claim))
+    values, years = [], set()
+    for m in VALUE_RE.finditer(claim):
+        tok = m.group(0).rstrip(".,").replace("−", "-").replace("–", "-")
+        nxt = claim[m.end():m.end() + 1]
+        if YEAR_RE.match(tok):
+            years.add(_year(tok))
+        elif nxt.isalpha() or (m.start() > 0 and claim[m.start() - 1].isalpha()):
+            continue
+        elif len(tok.lstrip("-")) >= 2 or "." in tok:
+            values.append(tok)
+    words = {w for w in _tokens(claim) if w.isalpha() and len(w) >= 3}
+    return list(dict.fromkeys(values)), years, words
+
+
+def _word(w: str) -> str:
+    return unicodedata.normalize("NFKC", w).strip("()[],;:*\u2022").replace("−", "-").replace("–", "-")
+
+
+def _is_value(word: str, value: str) -> bool:
+    w = _word(word)
+    if w == value:
+        return True
+    rest = w[len(value):]                       # "512GB", "346kg" - a unit glued to the number
+    return w.startswith(value) and rest.isalpha() and len(rest) <= 3
+
+
+def _table_cells(page: pymupdf.Page, claim_sentences: list[str]):
+    """Value cells the claim cites, each paired with its row label. When a value occurs more than once
+    on the page, the occurrence whose row label (words to its left) and column header (words above it)
+    best match the claim wins; an ambiguous value with no matching label is skipped."""
+    values, _, _ = _claim_cues(" ".join(claim_sentences))
+    if not values:
+        return [], []
+    words = page.get_text("words", flags=SEARCH_FLAGS)
+    value_rects, label_rects = [], []
+    for v in values:
+        # score against the sentence(s) that cite this value, not the whole answer
+        own = [s for s in claim_sentences if v in _claim_cues(s)[0]] or claim_sentences
+        _, years, claim_words = _claim_cues(" ".join(own))
+        scored = []
+        for o in (w for w in words if _is_value(w[4], v)):
+            yc, h = (o[1] + o[3]) / 2, o[3] - o[1]
+            row = [w for w in words if abs((w[1] + w[3]) / 2 - yc) < h * 0.6 and w[2] <= o[0] + 1
+                   and o[0] - w[2] < page.rect.width * 0.85]
+            label = [w for w in row if not any(ch.isdigit() for ch in w[4]) and len(_word(w[4])) > 1]
+            col = [w for w in words if w[3] <= o[1] + 1 and min(w[2], o[2]) - max(w[0], o[0]) > 0]
+            row_score = len({_word(w[4]).lower() for w in label} & claim_words)
+            col_score = len({_year(_word(w[4])) for w in col} & years) * 2 \
+                + 0.5 * len({_word(w[4]).lower() for w in col} & claim_words)
+            scored.append((row_score * 2 + col_score, o, label))
+        if not scored:
+            continue
+        best = max(s[0] for s in scored)
+        keep = [s for s in scored if s[0] == best] if best > 0 else (scored if len(scored) == 1 else [])
+        for _, o, label in keep:
+            value_rects.append(tuple(o[:4]))
+            label_rects.extend(tuple(w[:4]) for w in label)
+    return value_rects, list(dict.fromkeys(label_rects))
+
+
+def _tabular(ctx: dict, evidence: str) -> bool:
+    return ctx.get("kind") in ("table", "figure", "callout") or len(_numbers(evidence)) >= 4
+
+
 @lru_cache(maxsize=4)
 def _open(path: str) -> pymupdf.Document:
     return pymupdf.open(path)
@@ -112,15 +193,25 @@ def locate(answer: str, contexts: list[dict], pdf_path) -> dict[int, Highlight]:
         ctx = contexts[n - 1]
         evidence = best_sentence(" ".join(sents), ctx["text"])
         pages = [p for p in (ctx.get("pages") or [ctx.get("page")]) if p]
+        claim = " ".join(sents)
+        best_labels: list = []
         best = Highlight(n=n, page=pages[0] if pages else 1, sentence=evidence)
-        rank = {"exact": 3, "partial": 2, "numbers": 1, "none": 0}
+        rank = {"cells": 4, "exact": 3, "partial": 2, "numbers": 1, "none": 0}
         for p in pages:
             if not 0 < p <= doc.page_count:
                 continue
-            rects, how = _search(doc[p - 1], evidence, _numbers(CITE_RE.sub("", " ".join(sents))))
+            rects, how = _search(doc[p - 1], evidence, _numbers(CITE_RE.sub("", claim)))
+            # Evidence that is a table row / chart transcription (not a prose sentence found verbatim):
+            # highlight the exact cells the answer cites instead of whole table lines.
+            if how != "exact" and _tabular(ctx, evidence):
+                cells, labels = _table_cells(doc[p - 1], sents)
+                if cells:
+                    rects, how = cells, "cells"
+                    best_labels = labels
             if rank[how] > rank[best.match]:
-                best = Highlight(n, p, evidence, [tuple(r) for r in rects], how)
-            if how == "exact":
+                best = Highlight(n, p, evidence, [tuple(r) for r in rects], how,
+                                 best_labels if how == "cells" else [])
+            if how in ("exact", "cells"):
                 break
         out[n] = best
     return out
@@ -131,7 +222,11 @@ def _annotated(doc_path: str, h: Highlight) -> pymupdf.Document:
     one = pymupdf.open()
     one.insert_pdf(src, from_page=h.page - 1, to_page=h.page - 1)
     page = one[0]
-    for r in h.rects:
+    for r in h.label_rects:                                  # row labels in light blue
+        annot = page.add_highlight_annot(pymupdf.Rect(r))
+        annot.set_colors(stroke=(0.62, 0.82, 1.0))
+        annot.update()
+    for r in h.rects:                                        # evidence / value cells in yellow
         page.add_highlight_annot(pymupdf.Rect(r))
     return one
 

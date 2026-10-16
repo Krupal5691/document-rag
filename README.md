@@ -98,7 +98,9 @@ The image downloads the local models at build time, runs as a non-root user and 
 - **Verifiable citations**: every [n] in an answer is a link that opens the source page as a PDF with
   the supporting sentence highlighted; each cited source also shows the highlighted page inline. The
   evidence sentence is matched to the claim (numbers weighted), located on the page with PyMuPDF
-  (exact, then fuzzy 5-word windows, then the cited numbers for chart transcriptions).
+  (exact, then fuzzy 5-word windows, then the cited numbers for chart transcriptions). For tables it
+  highlights the exact cells: each cited value in yellow and its row label in blue, choosing between
+  repeated values by row label and column header (e.g. Bangladesh / 2026/27f).
 - **Ask**: naive and advanced answers side by side with their sources, plus a step-by-step trace of
   the advanced pipeline (rewritten query and filters → dense → BM25 → RRF → cross-encoder rerank →
   final context).
@@ -176,7 +178,7 @@ Changing the embedding provider creates separate collections, so re-run `ingest`
   data, never as instructions (prompt-injection guard). Secrets live only in `.env`, which is git-ignored.
 - **Observability.** Every answer carries per-stage timings and a full trace (rewritten query,
   filters, dense / BM25 / fused / reranked lists, which model answered); the API logs each request.
-- **Quality gates.** 26 pytest tests (parsing, chunking, query rules, API contract, LLM paths with a
+- **Quality gates.** 27 pytest tests (parsing, chunking, query rules, API contract, LLM paths with a
   fake Gemini) run in GitHub Actions on every push; `ruff` lint; evaluation with ablations.
 - **Scaling.** Point `QDRANT_URL` at a Qdrant server or cluster; add documents in `documents.py`; for
   many documents add payload indexes on `doc_id`/`region`/`chapter` and a queue for ingestion.
