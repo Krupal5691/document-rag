@@ -13,3 +13,6 @@ __pycache__/
 cache/llm/
 logs/
 static/hl/
+
+# internal task brief (company Drive) - kept local, not published
+docs/RAG-Hands-On-Use-Cases.docx
