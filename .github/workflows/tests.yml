@@ -11,3 +11,4 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - run: pytest -q
+      - run: ruff check rag_core tests app.py api.py
