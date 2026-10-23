@@ -50,9 +50,12 @@ probe). Full per-question results, answers and the model used for each are in
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env               # add GEMINI_API_KEY (works without it: retrieval only, local embeddings)
-python -m rag_core ingest          # parse, chunk and index all three documents
+python -m rag_core ingest          # parse, chunk and index all three documents (~5 min, no API key needed)
 streamlit run app.py               # demo at http://localhost:8501
 ```
+
+Indexing runs fully offline: embeddings, BM25 and the reranker are local models, and the iMac chart
+transcriptions are already in `cache/vision/`. A `GEMINI_API_KEY` is only needed to generate answers.
 
 Other commands:
 
@@ -92,6 +95,8 @@ docker compose up -d api demo        # API on :8000, demo on :8501, Qdrant on :6
 ```
 
 The image downloads the local models at build time, runs as a non-root user and has a health check.
+Verified end to end: build, indexing into the Qdrant server, `/ask` with highlighted evidence, and the
+demo's citation links. Secrets and local state are kept out of the build by `.dockerignore`.
 
 ## The demo
 
@@ -180,8 +185,9 @@ Changing the embedding provider creates separate collections, so re-run `ingest`
   filters, dense / BM25 / fused / reranked lists, which model answered); the API logs each request.
 - **Quality gates.** 27 pytest tests (parsing, chunking, query rules, API contract, LLM paths with a
   fake Gemini) run in GitHub Actions on every push; `ruff` lint; evaluation with ablations.
-- **Scaling.** Point `QDRANT_URL` at a Qdrant server or cluster; add documents in `documents.py`; for
-  many documents add payload indexes on `doc_id`/`region`/`chapter` and a queue for ingestion.
+- **Scaling.** Point `QDRANT_URL` at a Qdrant server or cluster (payload indexes on `doc_id`, `region`,
+  `chapter`, `kind` and `label` are created automatically there); add documents in `documents.py`;
+  for many documents add a queue for ingestion.
 
 ## Limitations
 
@@ -190,4 +196,12 @@ Changing the embedding provider creates separate collections, so re-run `ingest`
   (vision on 200 pages is possible via `vision="all"` but costly on the free tier).
 - Heading detection is heuristic (font size/weight); unusual layouts may need per-document tuning
   in `documents.py`.
-- The evaluation sets are small (10 questions per document) and check facts by keyword.
+- The evaluation sets are small (11 questions per document) and check facts by keyword; the LLM
+  faithfulness judge (`--judge`) is implemented but was not run on the free tier's quota.
+
+## Source documents
+
+The three PDFs in `data/` are public reports, included only so the project runs out of the box:
+the U.S. Government Publishing Office 2018 Annual Report (U.S. government work), the World Bank's
+*Global Economic Prospects, June 2026* (© World Bank) and Apple's *iMac Product Environmental Report*
+(© Apple Inc.). All rights remain with their publishers.

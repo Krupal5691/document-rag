@@ -1,0 +1,13 @@
+# keep secrets, private notes and local state out of the build context
+.env
+*DO_NOT_COMMIT*
+.venv/
+.index/
+.git/
+.claude/
+logs/
+static/hl/
+cache/llm/
+__pycache__/
+.pytest_cache/
+docs/RAG-Hands-On-Use-Cases.docx

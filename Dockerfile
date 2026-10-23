@@ -12,6 +12,7 @@ COPY data data
 COPY cache cache
 COPY eval eval
 COPY docs docs
+COPY .streamlit .streamlit
 COPY app.py api.py ./
 
 # Download the local models at build time so containers start fast and work offline
@@ -20,7 +21,8 @@ from fastembed.rerank.cross_encoder import TextCrossEncoder; \
 TextEmbedding('BAAI/bge-small-en-v1.5'); SparseTextEmbedding('Qdrant/bm25'); \
 TextCrossEncoder('Xenova/ms-marco-MiniLM-L-6-v2')"
 
-RUN useradd -m app && chown -R app /app
+# Folders the app writes to must exist (and belong to the app user) before volumes are mounted on them
+RUN mkdir -p /app/.index /app/logs /app/static/hl && useradd -m app && chown -R app /app
 USER app
 
 EXPOSE 8000 8501
